@@ -102,6 +102,7 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
+      <ForcedIncludeFiles>stdafx.h</ForcedIncludeFiles>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -147,30 +148,59 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="actions.h" />
+    <ClInclude Include="dragon.h" />
     <ClInclude Include="dungeon.h" />
     <ClInclude Include="enemy.h" />
     <ClInclude Include="game.h" />
+    <ClInclude Include="gnome.h" />
+    <ClInclude Include="goblin.h" />
+    <ClInclude Include="golem.h" />
     <ClInclude Include="hero.h" />
+    <ClInclude Include="hydra.h" />
     <ClInclude Include="inventory.h" />
     <ClInclude Include="item.h" />
+    <ClInclude Include="lich.h" />
+    <ClInclude Include="manticore.h" />
+    <ClInclude Include="oger.h" />
+    <ClInclude Include="ork.h" />
     <ClInclude Include="player.h" />
     <ClInclude Include="potion.h" />
+    <ClInclude Include="rat.h" />
     <ClInclude Include="room.h" />
+    <ClInclude Include="spider.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
+    <ClInclude Include="troll.h" />
+    <ClInclude Include="werewolve.h" />
+    <ClInclude Include="wolve.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="dragon.cpp" />
+    <ClCompile Include="enemy.cpp" />
+    <ClCompile Include="gnome.cpp" />
+    <ClCompile Include="goblin.cpp" />
+    <ClCompile Include="golem.cpp" />
+    <ClCompile Include="hydra.cpp" />
     <ClCompile Include="Inventory.cpp" />
     <ClCompile Include="item.cpp" />
+    <ClCompile Include="lich.cpp" />
+    <ClCompile Include="manticore.cpp" />
+    <ClCompile Include="oger.cpp" />
+    <ClCompile Include="ork.cpp" />
     <ClCompile Include="potion.cpp" />
+    <ClCompile Include="rat.cpp" />
     <ClCompile Include="RogueLike.cpp" />
     <ClCompile Include="room.cpp" />
+    <ClCompile Include="spider.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="troll.cpp" />
+    <ClCompile Include="werewolve.cpp" />
+    <ClCompile Include="wolve.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
