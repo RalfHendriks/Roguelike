@@ -12,6 +12,8 @@
 #include "targetver.h"
 #include <vector>
 #include <list>
+#include <ctime>
+#include <random>
 
 #define _CRTDBG_MAP_ALLOC
 #include <stdlib.h>

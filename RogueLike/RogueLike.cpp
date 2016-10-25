@@ -7,9 +7,6 @@
 
 int main()
 {
-	Inventory* i = new Inventory();
-	Potion* p = new Potion();
-	i->AddItem(p);
 	_CrtDumpMemoryLeaks();
     return 0;
 }
