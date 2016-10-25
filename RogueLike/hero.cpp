@@ -1,8 +1,7 @@
+#include "stdafx.h"
 #include "hero.h"
 
-Hero::Hero(std::string name)
-{
-	name_ = name;
+Hero::Hero() {
 	level_ = 1;
 	hp_ = 10;
 	xp_ = 0;
@@ -10,13 +9,20 @@ Hero::Hero(std::string name)
 	defence_ = 2;
 }
 
-Hero::~Hero()
-{
-}
+Hero::~Hero() {}
 
 void Hero::IncreaseLevel()
 {
-	level_ += 1;
+	level_++;
+	attack_++;
+	defence_++;
+	maxhp_ = (maxhp_ + 10);
+	std::cout << "Congratulations! You just increased in combat! You're now level " << level_;
+}
+
+void Hero::SetName(std::string name)
+{
+	Name = name;
 }
 
 void Hero::RemoveHP(int value)

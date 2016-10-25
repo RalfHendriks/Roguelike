@@ -9,19 +9,29 @@ private:
 	int xp_;
 	int hp_;
 	int maxhp_;
-	std::string name_;
+
+protected:
+	Hero();
+	Hero(const Hero&);
+	Hero& operator= (const Hero&);
 
 public:
+	std::string Name;
 
-	Hero(std::string name);
 	~Hero();
+
+	static Hero* Instance()
+	{
+		static Hero mInstance; // Guaranteed to be destroyed. - Instantiated on first use.
+		return &mInstance;
+	}
+
 
 	const int GetExp()		{ return xp_; }
 	const int GetLevel()	{ return level_; }
 	const int GetAttack()	{ return attack_; }
 	const int GetDefence()	{ return defence_; }
 	const int GetHP()		{ return hp_; }
-	std::string GetName()	{ return name_; }
 
 	void IncreaseLevel();
 	void RemoveHP(int value);
@@ -30,4 +40,5 @@ public:
 	void IncreaseXp(int value);
 	void IncreaseAttack(int value);
 	void IncreaseDefence(int value);
+	void SetName(std::string value);
 };

@@ -2,24 +2,18 @@
 //
 #pragma once
 #include "stdafx.h"
-#include "inventory.h"
-#include "potion.h"
-#include "enemy.h"
-#include "rat.h"
+#include "Hero.h"
 
 int main()
 {
-	Enemy* rat = new Rat();
+	std::cout << "* Welcome By Roguelike! \n"
+		<< "* Let's start! Please enter your name! \n";
+	std::string userName;
+	std::cin >> userName;
 
-	rat->SetName("Rat");
-
-	std::cout << rat->GetName() << "\n";
-
-	rat->SetName("Ratteke");
-
-	std::cout << rat->GetName();
-
-	delete rat;
+	Hero::Instance()->SetName(userName);
+	std::cout << "* Welcome " << userName << ". You're ready to start your adventure! \n";
+	std::cin.clear();
 
 	_CrtDumpMemoryLeaks();
     return 0;
