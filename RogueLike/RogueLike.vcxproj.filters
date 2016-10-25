@@ -60,6 +60,48 @@
     <ClInclude Include="potion.h">
       <Filter>Header Files\items</Filter>
     </ClInclude>
+    <ClInclude Include="dragon.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="gnome.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="goblin.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="golem.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="hydra.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="lich.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="manticore.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="oger.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ork.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="rat.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="spider.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="troll.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="werewolve.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="wolve.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="globals.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -83,10 +125,55 @@
     <ClCompile Include="item.cpp">
       <Filter>Source Files\items</Filter>
     </ClCompile>
-    <ClCompile Include="hero.cpp">
+    <ClCompile Include="dragon.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="enemy.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="gnome.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="goblin.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="golem.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="hydra.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="lich.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="manticore.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="oger.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ork.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="rat.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="spider.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="troll.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="werewolve.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="wolve.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="globals.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="hero.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
