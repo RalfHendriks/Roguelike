@@ -161,6 +161,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Inventory.cpp" />
+    <ClCompile Include="item.cpp" />
     <ClCompile Include="potion.cpp" />
     <ClCompile Include="RogueLike.cpp" />
     <ClCompile Include="room.cpp" />
