@@ -182,5 +182,8 @@
     <ClCompile Include="wolve.cpp">
       <Filter>Source Files\enemies</Filter>
     </ClCompile>
+    <ClCompile Include="dungeon.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
