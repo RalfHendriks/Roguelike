@@ -14,7 +14,6 @@ int main()
 	Hero::Instance()->SetName(userName);
 	std::cout << "* Welcome " << userName << ". You're ready to start your adventure! \n";
 	std::cin.clear();
-
 	_CrtDumpMemoryLeaks();
     return 0;
 }
