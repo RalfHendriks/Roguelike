@@ -148,6 +148,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="actions.h" />
+    <ClInclude Include="character.h" />
     <ClInclude Include="dragon.h" />
     <ClInclude Include="dungeon.h" />
     <ClInclude Include="enemy.h" />
@@ -164,7 +165,6 @@
     <ClInclude Include="manticore.h" />
     <ClInclude Include="oger.h" />
     <ClInclude Include="ork.h" />
-    <ClInclude Include="player.h" />
     <ClInclude Include="potion.h" />
     <ClInclude Include="rat.h" />
     <ClInclude Include="room.h" />
@@ -176,6 +176,7 @@
     <ClInclude Include="wolve.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="character.cpp" />
     <ClCompile Include="dragon.cpp" />
     <ClCompile Include="dungeon.cpp" />
     <ClCompile Include="enemy.cpp" />

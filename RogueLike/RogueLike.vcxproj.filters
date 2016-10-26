@@ -45,9 +45,6 @@
     <ClInclude Include="room.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="player.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="actions.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -110,6 +107,9 @@
     </ClInclude>
     <ClInclude Include="wolve.h">
       <Filter>Header Files\enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="character.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -183,6 +183,7 @@
       <Filter>Source Files\enemies</Filter>
     </ClCompile>
     <ClCompile Include="dungeon.cpp">
+    <ClCompile Include="character.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
