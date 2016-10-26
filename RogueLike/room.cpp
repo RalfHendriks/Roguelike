@@ -1,13 +1,15 @@
 #include "stdafx.h"
 #include "room.h"
+#include "globals.h"
 
 Room::Room()
 {
+	GenerateRoom();
 }
 
 std::string Room::GetDescription()
 {
-	return std::string();
+	return "A " + dirty_ + " " + size_ + " " + furniture_;
 }
 
 void Room::GenerateRoom() {
@@ -15,9 +17,9 @@ void Room::GenerateRoom() {
 	std::string dirtyness[2]{ "clean", "dirty" };
 	std::string furnitures[3]{ "with a table with four chairs", "with a bed", "with nothing" };
 
-	SetSize(sizes[1]);
-	SetDirty(dirtyness[1]);
-	SetFurniture(furnitures[1]);
+	SetSize(sizes[Globals::Random(2)]);
+	SetDirty(dirtyness[Globals::Random(1)]);
+	SetFurniture(furnitures[Globals::Random(2)]);
 }
 
 void Room::SetSize(const std::string & s) {

@@ -152,6 +152,7 @@
     <ClInclude Include="dungeon.h" />
     <ClInclude Include="enemy.h" />
     <ClInclude Include="game.h" />
+    <ClInclude Include="globals.h" />
     <ClInclude Include="gnome.h" />
     <ClInclude Include="goblin.h" />
     <ClInclude Include="golem.h" />
@@ -177,6 +178,7 @@
   <ItemGroup>
     <ClCompile Include="dragon.cpp" />
     <ClCompile Include="enemy.cpp" />
+    <ClCompile Include="globals.cpp" />
     <ClCompile Include="gnome.cpp" />
     <ClCompile Include="goblin.cpp" />
     <ClCompile Include="golem.cpp" />

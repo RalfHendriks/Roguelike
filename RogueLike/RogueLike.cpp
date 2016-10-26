@@ -6,20 +6,19 @@
 #include "potion.h"
 #include "enemy.h"
 #include "rat.h"
+#include "room.h"
+
 
 int main()
 {
-	Enemy* rat = new Rat();
+	Room* room = new Room();
 
-	rat->SetName("Rat");
+	std::cout << room->GetDescription();
 
-	std::cout << rat->GetName() << "\n";
+	while (true)
+	{
 
-	rat->SetName("Ratteke");
-
-	std::cout << rat->GetName();
-
-	delete rat;
+	}
 
 	_CrtDumpMemoryLeaks();
     return 0;
