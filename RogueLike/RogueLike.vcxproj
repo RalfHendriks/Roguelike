@@ -177,6 +177,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dragon.cpp" />
+    <ClCompile Include="dungeon.cpp" />
     <ClCompile Include="enemy.cpp" />
     <ClCompile Include="globals.cpp" />
     <ClCompile Include="gnome.cpp" />
