@@ -1,12 +1,14 @@
 #pragma once
 
+#include "character.h"
+
 class Item
 {
 public:
 	Item();
 	~Item();
 
-	void UseItem();
+	virtual void UseItem(Character* character);
 	void SetName(const std::string & n);
 	void SetDescription(const std::string & desc);
 	std::string GetDescription() { return description_; }

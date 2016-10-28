@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Item.h"
+#include "item.h"
 
 class Inventory
 {
@@ -10,7 +10,7 @@ public:
 
 	void AddItem(Item* item);
 	bool RemoveItem(Item* item);
-	std::string GetItems();
+	std::vector<Item*> GetItems();
 
 private:
 	std::vector<Item*> items_;
