@@ -27,6 +27,6 @@ public:
 	void Print(Hero* hero);
 	void AddConnectedRooms(Room* current);
 	void ConnectRoom(Room* current);
-	void PrintLegenda();
+	void PrintLegend();
 
 };

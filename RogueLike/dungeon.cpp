@@ -85,7 +85,7 @@ void Dungeon::printMap(Hero * player)
 	}
 }
 
-void Dungeon::PrintLegenda()
+void Dungeon::PrintLegend()
 {
 	std::cout << "Legenda:\n";
 	std::cout << "P    : You\n";

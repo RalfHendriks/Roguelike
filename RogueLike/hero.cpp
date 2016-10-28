@@ -28,6 +28,37 @@ void Hero::IncreaseMaxHealth(const int & h)
 	maxHealth_ += h;
 }
 
+void Hero::Rest()
+{
+	AddHealth(10);
+	if (maxHealth_ < health_) { health_ = maxHealth_; }
+}
+
+std::string Hero::Search()
+{
+	Room* room = RoomHistory.at(RoomHistory.size() - 1);
+	if (!room->HasBeenSearched()) {
+		std::string output = "You search the room\n";
+		double rValue = rand() % 10;
+
+		if (rValue > 8 ) {
+			output.append("You found something!\n");
+			/*
+				Input code for new found item;;
+			*/
+		}
+		else {
+			output.append("You couldn't find anything useful\n");
+		}
+		room->SetSearched();
+
+		return output;
+	}
+	else {
+		return "All that's left in this room is a pile of dust";
+	}
+}
+
 void Hero::IncreaseXp(const int & exp)
 {
 	xp_ += exp;
