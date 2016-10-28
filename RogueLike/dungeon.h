@@ -12,9 +12,6 @@ private:
 	void printRoomRow(Room* room, size_t index, size_t subIndex, Hero* player);
 	void printPath(Room* room, size_t index);
 	void printMap(Hero* player);
-	void printLegenda();
-
-
 
 public:
 	//init
@@ -30,5 +27,6 @@ public:
 	void Print(Hero* hero);
 	void AddConnectedRooms(Room* current);
 	void ConnectRoom(Room* current);
+	void PrintLegenda();
 
 };

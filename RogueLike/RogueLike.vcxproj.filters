@@ -37,6 +37,12 @@
     <ClCompile Include="EnemyFactory.cpp">
       <Filter>Source files</Filter>
     </ClCompile>
+    <ClCompile Include="game.cpp">
+      <Filter>Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="inputHandler.cpp">
+      <Filter>Source files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="enemy.h">
@@ -79,6 +85,9 @@
       <Filter>Header files</Filter>
     </ClInclude>
     <ClInclude Include="enemyFactory.h">
+      <Filter>Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="inputHandler.h">
       <Filter>Header files</Filter>
     </ClInclude>
   </ItemGroup>
