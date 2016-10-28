@@ -2,10 +2,15 @@
 
 Potion::Potion()
 {
-	SetDescription("Heals 10 lifepoints");
 	SetName("HealthPotion");
+	SetDescription("Heals 10 lifepoints");
 };
 
 Potion::~Potion()
 {
 };
+
+void Potion::UseItem(Character* character) 
+{
+	character->AddHealth(10);
+}

@@ -2,11 +2,11 @@
 
 #include "item.h"
 
-class Potion: public Item
+class Grenade : public Item
 {
 public:
-	Potion();
-	~Potion();
+	Grenade();
+	~Grenade();
 
 	void UseItem(Character * character);
 };

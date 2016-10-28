@@ -1,4 +1,5 @@
 #include "inventory.h"
+#include <algorithm>
 
 Inventory::Inventory()
 {
@@ -6,7 +7,10 @@ Inventory::Inventory()
 
 Inventory::~Inventory()
 {
-
+	for (size_t i = 0; i < items_.size(); i++) {
+		delete items_.at(i);
+	}
+	items_.clear();
 }
 
 void Inventory::AddItem(Item * item)
@@ -16,10 +20,12 @@ void Inventory::AddItem(Item * item)
 
 bool Inventory::RemoveItem(Item * item)
 {
-	return false;
+	items_.erase(std::remove(items_.begin(), items_.end(), item), items_.end());
+	delete item;
+	return true;
 }
 
-std::string Inventory::GetItems()
+std::vector<Item*> Inventory::GetItems()
 {
-	return std::string();
+	return items_;
 }
