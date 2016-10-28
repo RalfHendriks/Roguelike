@@ -5,12 +5,34 @@
 Room::Room(int dungeonLvl)
 {
 	roomLvl = dungeonLvl;
+	isAdded_ = false;
+	isWall_ = true;
 	GenerateRoom();
 }
 
 Room::~Room()
 {
 	delete Enemy;
+}
+
+bool Room::algorithmIsWall()
+{
+	return isWall_;
+}
+
+void Room::algorithmChecked()
+{
+	isAdded_ = true;
+}
+
+bool Room::algorithmIsAdded()
+{
+	return isAdded_;
+}
+
+void Room::algorithmIsListed()
+{
+	isWall_ = false;
 }
 
 std::string Room::GetDescription()
@@ -21,6 +43,16 @@ std::string Room::GetDescription()
 bool Room::HasBeenSearched()
 {
 	return hasBeenSearched_;
+}
+
+bool Room::HasBeenVisited()
+{
+	return hasBeenVisited_;
+}
+
+bool Room::HasEnemies()
+{
+	return Enemy != nullptr ? true : false;
 }
 
 void Room::GenerateRoom() {

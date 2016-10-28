@@ -1,5 +1,6 @@
 #pragma once
 
+#include "room.h"
 #include "character.h"
 
 class Hero : public Character
@@ -21,7 +22,8 @@ public:
 		return &mInstance;
 	}
 
-	int GetExp() { return xp_; }
+	std::vector<Room*> RoomHistory = std::vector<Room*>();
+	const int GetExp()		{ return xp_; }
 	int GetMaxHealth() { return maxHealth_; }
 
 	void IncreaseLevel();
