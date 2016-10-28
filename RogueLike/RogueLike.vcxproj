@@ -148,6 +148,7 @@
     <ClInclude Include="character.h" />
     <ClInclude Include="dungeon.h" />
     <ClInclude Include="enemy.h" />
+    <ClInclude Include="enemyFactory.h" />
     <ClInclude Include="game.h" />
     <ClInclude Include="globals.h" />
     <ClInclude Include="hero.h" />
@@ -162,6 +163,7 @@
     <ClCompile Include="character.cpp" />
     <ClCompile Include="dungeon.cpp" />
     <ClCompile Include="enemy.cpp" />
+    <ClCompile Include="EnemyFactory.cpp" />
     <ClCompile Include="globals.cpp" />
     <ClCompile Include="hero.cpp" />
     <ClCompile Include="Inventory.cpp" />

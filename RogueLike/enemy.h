@@ -18,6 +18,9 @@ public:
 	void SetMinDamage(const int & minDam);
 	void SetMaxDamage(const int & maxDam);
 
+	// Methods
+	Enemy* Clone();
+
 protected:
 	int attackSequence_, minDamage_, maxDamage_;
 };

@@ -6,10 +6,11 @@
 #include "dungeon.h"
 #include "character.h"
 #include "spider.h"
+#include "enemyFactory.h"
 
 int main()
 {
-	std::cout << "* Welcome By Roguelike! \n"
+	/*std::cout << "* Welcome By Roguelike! \n"
 		<< "* Let's start! Please enter your name! \n";
 	std::string userName;
 	std::cin >> userName;
@@ -27,7 +28,12 @@ int main()
 	d->Print(Hero::Instance());
 
 	Hero::Instance()->~Hero();
-	delete d;
+	delete d;*/
+	
+	Enemy* enemy = EnemyFactory::Instance()->GetMonser(1);
+	EnemyFactory::Instance()->~EnemyFactory();
+
+	delete enemy;
 
 	_CrtDumpMemoryLeaks();
     return 0;
