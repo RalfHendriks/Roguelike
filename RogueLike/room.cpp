@@ -84,6 +84,11 @@ void Room::SetVisited()
 	AddEnemy();
 }
 
+void Room::SetSearched()
+{
+	hasBeenSearched_ = true;
+}
+
 void Room::PrintPossibleMovements()
 {
 	if (Monster != nullptr) {

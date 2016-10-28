@@ -29,4 +29,6 @@ public:
 	void IncreaseLevel();
 	void IncreaseXp(const int & exp);
 	void IncreaseMaxHealth(const int & h);
+	void Rest();
+	std::string Search();
 };

@@ -44,6 +44,7 @@ public:
 	void SetDirty(const std::string & d);
 	void SetFurniture(const std::string & f);
 	void SetVisited();
+	void SetSearched();
 
 	//Methods
 	void PrintPossibleMovements();

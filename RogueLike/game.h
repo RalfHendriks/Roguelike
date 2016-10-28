@@ -17,6 +17,10 @@ public:
 	~Game();
 	void Start();
 	void Refresh();
+	void GetLegend();
+	void GetHeroStats();
 	std::string ExecuteAction(std::string action);
 	std::string CanDoAction(std::string action);
+	std::string PossibleActions();
+	std::string ActionsForRoom();
 };
