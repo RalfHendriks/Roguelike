@@ -3,7 +3,8 @@
 
 Hero::Hero() {
 	level_ = 1;
-	hp_ = 10;
+	health_ = 10;
+	maxHealth_ = 10;
 	xp_ = 0;
 	attack_ = 2;
 	defence_ = 2;
@@ -16,36 +17,20 @@ Hero::~Hero() {
 void Hero::IncreaseLevel()
 {
 	level_++;
-	attack_++;
-	defence_++;
-	maxhp_ = (maxhp_ + 10);
+	IncreaseAttack(1);
+	IncreaseDefence(1);
+	IncreaseMaxHealth(10);
 	std::cout << "Congratulations! You just increased in combat! You're now level " << level_;
 }
 
-void Hero::SetName(std::string name)
+void Hero::IncreaseMaxHealth(const int & h)
 {
-	Name = name;
+	maxHealth_ += h;
 }
 
-void Hero::RemoveHP(int value)
+void Hero::IncreaseXp(const int & exp)
 {
-	hp_ -= value;
-}
-
-void Hero::AddHealth(int value)
-{
-	hp_ += value;
-	if (maxhp_ < hp_) { hp_ = maxhp_; }
-}
-
-void Hero::IncreaseMaxHp(int value)
-{
-	maxhp_ += value;
-}
-
-void Hero::IncreaseXp(int value)
-{
-	xp_ += value;
+	xp_ += exp;
 
 	if (level_ == 1 && xp_ > 20) {
 		IncreaseLevel();
@@ -77,14 +62,4 @@ void Hero::IncreaseXp(int value)
 	else if (level_ == 10 && xp_ > 6400) {
 		IncreaseLevel();
 	}
-}
-
-void Hero::IncreaseAttack(int value)
-{
-	attack_ += value;
-}
-
-void Hero::IncreaseDefence(int value)
-{
-	defence_ += value;
 }

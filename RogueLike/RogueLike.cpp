@@ -4,6 +4,8 @@
 #include "stdafx.h"
 #include "Hero.h"
 #include "dungeon.h"
+#include "character.h"
+#include "spider.h"
 
 int main()
 {
@@ -20,13 +22,13 @@ int main()
 	int size;
 	std::cin >> size;
 
-
 	Dungeon* d = new Dungeon(10,1);
 	Hero::Instance()->RoomHistory.push_back(d->GetStartRoom());
 	d->Print(Hero::Instance());
 
 	Hero::Instance()->~Hero();
 	delete d;
+
 	_CrtDumpMemoryLeaks();
     return 0;
 }

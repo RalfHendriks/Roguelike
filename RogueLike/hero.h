@@ -1,16 +1,12 @@
 #pragma once
 
 #include "room.h"
+#include "character.h"
 
-class Hero
+class Hero : public Character
 {
 private:
-	int level_;
-	int attack_;
-	int defence_;
-	int xp_;
-	int hp_;
-	int maxhp_;
+	int xp_, maxHealth_;
 
 protected:
 	Hero();
@@ -18,8 +14,6 @@ protected:
 	Hero& operator= (const Hero&);
 
 public:
-	std::string Name;
-
 	~Hero();
 
 	static Hero* Instance()
@@ -30,17 +24,9 @@ public:
 
 	std::vector<Room*> RoomHistory = std::vector<Room*>();
 	const int GetExp()		{ return xp_; }
-	const int GetLevel()	{ return level_; }
-	const int GetAttack()	{ return attack_; }
-	const int GetDefence()	{ return defence_; }
-	const int GetHP()		{ return hp_; }
+	int GetMaxHealth() { return maxHealth_; }
 
 	void IncreaseLevel();
-	void RemoveHP(int value);
-	void AddHealth(int value);
-	void IncreaseMaxHp(int value);
-	void IncreaseXp(int value);
-	void IncreaseAttack(int value);
-	void IncreaseDefence(int value);
-	void SetName(std::string value);
+	void IncreaseXp(const int & exp);
+	void IncreaseMaxHealth(const int & h);
 };

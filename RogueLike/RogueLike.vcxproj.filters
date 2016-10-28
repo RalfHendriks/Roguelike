@@ -108,6 +108,9 @@
     <ClInclude Include="wolve.h">
       <Filter>Header Files\enemies</Filter>
     </ClInclude>
+    <ClInclude Include="character.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -180,6 +183,7 @@
       <Filter>Source Files\enemies</Filter>
     </ClCompile>
     <ClCompile Include="dungeon.cpp">
+    <ClCompile Include="character.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
