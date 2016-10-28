@@ -25,7 +25,7 @@ public:
 	Room* dEast = nullptr;
 	Room* dSouth = nullptr;
 	Room* dWest = nullptr;
-	Rat* Enemy = nullptr;
+	Enemy* Monster = nullptr;
 	int x, y, roomLvl;
 	bool canGoUp = false;
 	bool canGoDown = false;

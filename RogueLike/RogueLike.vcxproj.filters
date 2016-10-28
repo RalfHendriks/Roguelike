@@ -1,190 +1,93 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Source Files">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
-    <Filter Include="Header Files">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
-    </Filter>
-    <Filter Include="Resource Files">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
-    </Filter>
-    <Filter Include="Header Files\items">
-      <UniqueIdentifier>{17d55c5f-766d-435b-9e0e-e5de87cd4fb7}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\items">
-      <UniqueIdentifier>{a9065138-f462-481f-aa93-5f955f3d406f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\enemies">
-      <UniqueIdentifier>{9809daa4-41be-46aa-87f2-a601a3bc1507}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\enemies">
-      <UniqueIdentifier>{a238dc63-7471-4cbb-a4aa-50c29c3ea6b6}</UniqueIdentifier>
-    </Filter>
-  </ItemGroup>
-  <ItemGroup>
-    <Text Include="ReadMe.txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="stdafx.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="targetver.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="dungeon.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="game.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="room.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="actions.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="hero.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="inventory.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="item.h">
-      <Filter>Header Files\items</Filter>
-    </ClInclude>
-    <ClInclude Include="potion.h">
-      <Filter>Header Files\items</Filter>
-    </ClInclude>
-    <ClInclude Include="globals.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="enemy.h">
-      <Filter>Header Files\enemies</Filter>
-    </ClInclude>
-    <ClInclude Include="gnome.h">
-      <Filter>Header Files\enemies</Filter>
-    </ClInclude>
-    <ClInclude Include="dragon.h">
-      <Filter>Header Files\enemies</Filter>
-    </ClInclude>
-    <ClInclude Include="goblin.h">
-      <Filter>Header Files\enemies</Filter>
-    </ClInclude>
-    <ClInclude Include="golem.h">
-      <Filter>Header Files\enemies</Filter>
-    </ClInclude>
-    <ClInclude Include="hydra.h">
-      <Filter>Header Files\enemies</Filter>
-    </ClInclude>
-    <ClInclude Include="lich.h">
-      <Filter>Header Files\enemies</Filter>
-    </ClInclude>
-    <ClInclude Include="manticore.h">
-      <Filter>Header Files\enemies</Filter>
-    </ClInclude>
-    <ClInclude Include="oger.h">
-      <Filter>Header Files\enemies</Filter>
-    </ClInclude>
-    <ClInclude Include="ork.h">
-      <Filter>Header Files\enemies</Filter>
-    </ClInclude>
-    <ClInclude Include="rat.h">
-      <Filter>Header Files\enemies</Filter>
-    </ClInclude>
-    <ClInclude Include="spider.h">
-      <Filter>Header Files\enemies</Filter>
-    </ClInclude>
-    <ClInclude Include="troll.h">
-      <Filter>Header Files\enemies</Filter>
-    </ClInclude>
-    <ClInclude Include="werewolve.h">
-      <Filter>Header Files\enemies</Filter>
-    </ClInclude>
-    <ClInclude Include="wolve.h">
-      <Filter>Header Files\enemies</Filter>
-    </ClInclude>
-    <ClInclude Include="character.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="stdafx.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="RogueLike.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="room.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="potion.cpp">
-      <Filter>Source Files\items</Filter>
-    </ClCompile>
-    <ClCompile Include="Inventory.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="item.cpp">
-      <Filter>Source Files\items</Filter>
-    </ClCompile>
-    <ClCompile Include="globals.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="hero.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="dragon.cpp">
-      <Filter>Source Files\enemies</Filter>
-    </ClCompile>
     <ClCompile Include="enemy.cpp">
-      <Filter>Source Files\enemies</Filter>
+      <Filter>Source files</Filter>
     </ClCompile>
-    <ClCompile Include="gnome.cpp">
-      <Filter>Source Files\enemies</Filter>
-    </ClCompile>
-    <ClCompile Include="goblin.cpp">
-      <Filter>Source Files\enemies</Filter>
-    </ClCompile>
-    <ClCompile Include="golem.cpp">
-      <Filter>Source Files\enemies</Filter>
-    </ClCompile>
-    <ClCompile Include="hydra.cpp">
-      <Filter>Source Files\enemies</Filter>
-    </ClCompile>
-    <ClCompile Include="lich.cpp">
-      <Filter>Source Files\enemies</Filter>
-    </ClCompile>
-    <ClCompile Include="manticore.cpp">
-      <Filter>Source Files\enemies</Filter>
-    </ClCompile>
-    <ClCompile Include="oger.cpp">
-      <Filter>Source Files\enemies</Filter>
-    </ClCompile>
-    <ClCompile Include="ork.cpp">
-      <Filter>Source Files\enemies</Filter>
-    </ClCompile>
-    <ClCompile Include="rat.cpp">
-      <Filter>Source Files\enemies</Filter>
-    </ClCompile>
-    <ClCompile Include="spider.cpp">
-      <Filter>Source Files\enemies</Filter>
-    </ClCompile>
-    <ClCompile Include="troll.cpp">
-      <Filter>Source Files\enemies</Filter>
-    </ClCompile>
-    <ClCompile Include="werewolve.cpp">
-      <Filter>Source Files\enemies</Filter>
-    </ClCompile>
-    <ClCompile Include="wolve.cpp">
-      <Filter>Source Files\enemies</Filter>
+    <ClCompile Include="character.cpp">
+      <Filter>Source files</Filter>
     </ClCompile>
     <ClCompile Include="dungeon.cpp">
-    <ClCompile Include="character.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source files</Filter>
     </ClCompile>
+    <ClCompile Include="globals.cpp">
+      <Filter>Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="hero.cpp">
+      <Filter>Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="Inventory.cpp">
+      <Filter>Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="item.cpp">
+      <Filter>Source files\Items</Filter>
+    </ClCompile>
+    <ClCompile Include="potion.cpp">
+      <Filter>Source files\Items</Filter>
+    </ClCompile>
+    <ClCompile Include="RogueLike.cpp">
+      <Filter>Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="room.cpp">
+      <Filter>Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>Source files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="enemy.h">
+      <Filter>Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="character.h">
+      <Filter>Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="dungeon.h">
+      <Filter>Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="actions.h">
+      <Filter>Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="game.h">
+      <Filter>Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="globals.h">
+      <Filter>Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="hero.h">
+      <Filter>Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="inventory.h">
+      <Filter>Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="item.h">
+      <Filter>Header files\Items</Filter>
+    </ClInclude>
+    <ClInclude Include="potion.h">
+      <Filter>Header files\Items</Filter>
+    </ClInclude>
+    <ClInclude Include="room.h">
+      <Filter>Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>Header files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Header files">
+      <UniqueIdentifier>{15d8aa75-b714-4209-bdba-8e17df49272c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source files">
+      <UniqueIdentifier>{bf1b75b4-0ef1-4ed0-bb8e-281fe5a2a4f5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header files\Items">
+      <UniqueIdentifier>{1f87fd4f-f17d-49b4-a5aa-026d3746b804}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source files\Items">
+      <UniqueIdentifier>{0670f8a6-f950-4b90-9e7b-0f30cd9cf42d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
 </Project>

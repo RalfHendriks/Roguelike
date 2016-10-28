@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "room.h"
+#include "enemy.h"
 #include "globals.h"
 
 Room::Room(int dungeonLvl)
@@ -12,7 +13,7 @@ Room::Room(int dungeonLvl)
 
 Room::~Room()
 {
-	delete Enemy;
+	delete Monster;
 }
 
 bool Room::algorithmIsWall()
@@ -52,7 +53,7 @@ bool Room::HasBeenVisited()
 
 bool Room::HasEnemies()
 {
-	return Enemy != nullptr ? true : false;
+	return Monster != nullptr ? true : false;
 }
 
 void Room::GenerateRoom() {
@@ -85,11 +86,11 @@ void Room::SetVisited()
 
 void Room::PrintPossibleMovements()
 {
-	if (Enemy != nullptr) {
+	if (Monster != nullptr) {
 		std::cout << "These enemies are in the room:\n";
 
 		std::cout << "\n";
-		std::cout << "[Fight] Fight against " + Enemy->GetName() + " enemies\n";
+		std::cout << "[Fight] Fight against " + Monster->GetName() + " enemies\n";
 		std::cout << "[Flee] Flee from this place like a coward!\n";
 	}
 	else {
@@ -123,7 +124,7 @@ void Room::AddEnemy()
 {
 	if (!canGoDown && !canGoUp)
 	{
-		if (Enemy == nullptr)
+		if (Monster == nullptr)
 		{
 			int chance;
 			if (!hasBeenVisited_)
@@ -135,7 +136,7 @@ void Room::AddEnemy()
 				chance = rand() % (20);
 			}
 			if (chance != 0) {
-				Enemy = new Rat();
+				Monster = new Enemy();
 			}
 		}
 	}
