@@ -1,5 +1,7 @@
 #pragma once
 
+#include "room.h"
+
 class Hero
 {
 private:
@@ -26,7 +28,7 @@ public:
 		return &mInstance;
 	}
 
-
+	std::vector<Room*> RoomHistory = std::vector<Room*>();
 	const int GetExp()		{ return xp_; }
 	const int GetLevel()	{ return level_; }
 	const int GetAttack()	{ return attack_; }

@@ -45,9 +45,6 @@
     <ClInclude Include="room.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="player.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="actions.h">
       <Filter>Header Files</Filter>
     </ClInclude>

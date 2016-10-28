@@ -9,7 +9,9 @@ Hero::Hero() {
 	defence_ = 2;
 }
 
-Hero::~Hero() {}
+Hero::~Hero() {
+	RoomHistory.clear();
+}
 
 void Hero::IncreaseLevel()
 {

@@ -164,7 +164,6 @@
     <ClInclude Include="manticore.h" />
     <ClInclude Include="oger.h" />
     <ClInclude Include="ork.h" />
-    <ClInclude Include="player.h" />
     <ClInclude Include="potion.h" />
     <ClInclude Include="rat.h" />
     <ClInclude Include="room.h" />
