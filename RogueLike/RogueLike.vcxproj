@@ -151,6 +151,7 @@
     <ClInclude Include="game.h" />
     <ClInclude Include="globals.h" />
     <ClInclude Include="hero.h" />
+    <ClInclude Include="inputHandler.h" />
     <ClInclude Include="inventory.h" />
     <ClInclude Include="item.h" />
     <ClInclude Include="potion.h" />
@@ -162,8 +163,10 @@
     <ClCompile Include="character.cpp" />
     <ClCompile Include="dungeon.cpp" />
     <ClCompile Include="enemy.cpp" />
+    <ClCompile Include="game.cpp" />
     <ClCompile Include="globals.cpp" />
     <ClCompile Include="hero.cpp" />
+    <ClCompile Include="inputHandler.cpp" />
     <ClCompile Include="Inventory.cpp" />
     <ClCompile Include="item.cpp" />
     <ClCompile Include="potion.cpp" />

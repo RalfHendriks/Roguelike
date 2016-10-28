@@ -1,10 +1,22 @@
 #pragma once
+#include "dungeon.h"
+#include "stdafx.h"
+#include "hero.h"
+#include "inputHandler.h"
 
 class Game {
+private:
+	Dungeon* dungeon_;
+	InputHandler inputHandler_;
+	bool gameIsRunning_;
+	void Setup();
+	void RunGameSequence();
 
 public:
-	void Init();
-	void Play();
-	void Restart();
-		
+	Game();
+	~Game();
+	void Start();
+	void Refresh();
+	std::string ExecuteAction(std::string action);
+	std::string CanDoAction(std::string action);
 };
