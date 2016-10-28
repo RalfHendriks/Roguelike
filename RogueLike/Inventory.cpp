@@ -6,6 +6,7 @@ Inventory::Inventory()
 
 Inventory::~Inventory()
 {
+
 }
 
 void Inventory::AddItem(Item * item)

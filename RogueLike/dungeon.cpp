@@ -85,7 +85,7 @@ void Dungeon::printMap(Hero * player)
 	}
 }
 
-void Dungeon::printLegenda()
+void Dungeon::PrintLegenda()
 {
 	std::cout << "Legenda:\n";
 	std::cout << "P    : You\n";
@@ -171,7 +171,6 @@ void Dungeon::Print(Hero * hero)
 {
 	printMap(hero);
 	std::cout << "\n";
-	printLegenda();
 }
 
 void Dungeon::AddConnectedRooms(Room * current)
