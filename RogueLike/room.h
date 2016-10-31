@@ -1,6 +1,7 @@
 #pragma once
 #include "stdafx.h"
 #include "rat.h"
+#include "enemyfactory.h"
 
 class Room
 {
@@ -25,10 +26,10 @@ public:
 	Room* dEast = nullptr;
 	Room* dSouth = nullptr;
 	Room* dWest = nullptr;
+	Room* dDown = nullptr;
+	Room* dUp = nullptr;
 	Enemy* Monster = nullptr;
 	int x, y, roomLvl;
-	bool canGoUp = false;
-	bool canGoDown = false;
 	bool algorithmIsWall();
 	void algorithmChecked();
 	bool algorithmIsAdded();
@@ -45,6 +46,8 @@ public:
 	void SetFurniture(const std::string & f);
 	void SetVisited();
 	void SetSearched();
+	bool CanGoDown() { return dDown == nullptr ? false : true; }
+	bool CanGoUp() { return dUp == nullptr ? false : true; }
 
 	//Methods
 	void PrintPossibleMovements();
