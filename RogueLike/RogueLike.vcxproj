@@ -151,7 +151,9 @@
     <ClInclude Include="enemyFactory.h" />
     <ClInclude Include="game.h" />
     <ClInclude Include="globals.h" />
+    <ClInclude Include="grenade.h" />
     <ClInclude Include="hero.h" />
+    <ClInclude Include="heroSaveData.h" />
     <ClInclude Include="inputHandler.h" />
     <ClInclude Include="inventory.h" />
     <ClInclude Include="item.h" />
@@ -167,7 +169,9 @@
     <ClCompile Include="EnemyFactory.cpp" />
     <ClCompile Include="game.cpp" />
     <ClCompile Include="globals.cpp" />
+    <ClCompile Include="grenade.cpp" />
     <ClCompile Include="hero.cpp" />
+    <ClCompile Include="heroSaveData.cpp" />
     <ClCompile Include="inputHandler.cpp" />
     <ClCompile Include="Inventory.cpp" />
     <ClCompile Include="item.cpp" />

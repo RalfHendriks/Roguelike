@@ -2,11 +2,15 @@
 
 #include "room.h"
 #include "character.h"
+#include "inventory.h"
+#include "heroSaveData.h"
 
 class Hero : public Character
 {
 private:
 	int xp_, maxHealth_;
+	Inventory* inventory_;
+	HeroSaveData* saveData_;
 
 protected:
 	Hero();
@@ -29,6 +33,10 @@ public:
 	void IncreaseLevel();
 	void IncreaseXp(const int & exp);
 	void IncreaseMaxHealth(const int & h);
+	void SetMaxHealth(const int & h);
+	void SetXp(const int & exp);
 	void Rest();
 	std::string Search();
+	void Save();
+	void Load();
 };

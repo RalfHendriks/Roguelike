@@ -43,6 +43,12 @@
     <ClCompile Include="inputHandler.cpp">
       <Filter>Source files</Filter>
     </ClCompile>
+    <ClCompile Include="grenade.cpp">
+      <Filter>Source files\Items</Filter>
+    </ClCompile>
+    <ClCompile Include="heroSaveData.cpp">
+      <Filter>Source files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="enemy.h">
@@ -88,6 +94,12 @@
       <Filter>Header files</Filter>
     </ClInclude>
     <ClInclude Include="inputHandler.h">
+      <Filter>Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="grenade.h">
+      <Filter>Header files\Items</Filter>
+    </ClInclude>
+    <ClInclude Include="heroSaveData.h">
       <Filter>Header files</Filter>
     </ClInclude>
   </ItemGroup>
