@@ -102,6 +102,9 @@
     <ClInclude Include="heroSaveData.h">
       <Filter>Header files</Filter>
     </ClInclude>
+    <ClInclude Include="commands.h">
+      <Filter>Header files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Header files">

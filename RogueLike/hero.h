@@ -8,7 +8,7 @@
 class Hero : public Character
 {
 private:
-	int xp_, maxHealth_;
+	int xp_, maxHealth_, dungeonLvl_;
 	Inventory* inventory_;
 	HeroSaveData* saveData_;
 
@@ -27,8 +27,9 @@ public:
 	}
 
 	std::vector<Room*> RoomHistory = std::vector<Room*>();
-	const int GetExp()		{ return xp_; }
-	int GetMaxHealth() { return maxHealth_; }
+	int GetExp()		{ return xp_; }
+	int GetDungeonLvl()	{ return dungeonLvl_; }
+	int GetMaxHealth()	{ return maxHealth_; }
 
 	void IncreaseLevel();
 	void IncreaseXp(const int & exp);
@@ -36,7 +37,11 @@ public:
 	void SetMaxHealth(const int & h);
 	void SetXp(const int & exp);
 	void Rest();
-	std::string Search();
 	void Save();
 	void Load();
+	void ToNextDungeon();
+	bool ToPreviousDungeon();
+	void PrintStats();
+	std::string Search();
+	std::string AttackActions();
 };
