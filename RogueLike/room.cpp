@@ -92,10 +92,10 @@ void Room::SetSearched()
 void Room::PrintPossibleMovements()
 {
 	if (Monster != nullptr) {
-		std::cout << "These enemies are in the room:\n";
+		std::cout << "These enemies are in the room: " + Monster->GetName() + "\n";
 
 		std::cout << "\n";
-		std::cout << "[Fight] Fight against " + Monster->GetName() + " enemies\n";
+		std::cout << "[Fight] Fight against " + Monster->GetName() + " \n";
 		std::cout << "[Flee] Flee from this place like a coward!\n";
 	}
 	else {
@@ -111,10 +111,10 @@ void Room::PrintPossibleMovements()
 		if (dSouth != nullptr) {
 			std::cout << "[South] Go south\n";
 		}
-		if (canGoUp) {
+		if (CanGoUp()) {
 			std::cout << "[Up] Go up to the entrance\n";
 		}
-		if (canGoDown) {
+		if (CanGoDown()) {
 			std::cout << "[Down] Go deeper to the monsters lair\n";
 		}
 		if (!hasBeenVisited_) {
@@ -127,7 +127,7 @@ void Room::PrintPossibleMovements()
 
 void Room::AddEnemy()
 {
-	if (!canGoDown && !canGoUp)
+	if (!CanGoDown() && !CanGoUp())
 	{
 		if (Monster == nullptr)
 		{
@@ -140,8 +140,8 @@ void Room::AddEnemy()
 			{
 				chance = rand() % (20);
 			}
-			if (chance != 0) {
-				Monster = new Enemy();
+			if (chance == 0) {
+				Monster = EnemyFactory::Instance()->GetMonser(2);
 			}
 		}
 	}

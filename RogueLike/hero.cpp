@@ -8,6 +8,7 @@ Hero::Hero() {
 	xp_ = 0;
 	attack_ = 2;
 	defence_ = 2;
+	dungeonLvl_ = 0;
 }
 
 Hero::~Hero() {
@@ -26,6 +27,33 @@ void Hero::IncreaseLevel()
 void Hero::IncreaseMaxHealth(const int & h)
 {
 	maxHealth_ += h;
+}
+
+void Hero::ToNextDungeon()
+{
+	if (dungeonLvl_ < 9) { dungeonLvl_++; }
+}
+
+bool Hero::ToPreviousDungeon()
+{
+	if (dungeonLvl_ > 0) { dungeonLvl_--; return true; }
+	return false;
+}
+
+void Hero::PrintStats()
+{
+	std::cout << ("<-" + name_ + "->\n");
+	std::cout << ("Level: " + std::to_string(level_) + "\n");
+
+	if (level_ != 10) {
+		std::cout << ("Experience Points: " + std::to_string(xp_) + "\n");
+	}
+	else {
+		std::cout << ("Experience Points: MAX \n");
+	}
+	std::cout << ("HP: " + std::to_string(health_) + "/" + std::to_string(maxHealth_) + "\n");
+	std::cout << ("Attack: " + std::to_string(attack_) + "\n");
+	std::cout << ("Defence: " + std::to_string(defence_) + "\n");
 }
 
 void Hero::Rest()
@@ -57,6 +85,21 @@ std::string Hero::Search()
 	else {
 		return "All that's left in this room is a pile of dust";
 	}
+}
+
+std::string Hero::AttackActions()
+{
+	std::string output = "";
+	output += "You are in a fight with:\n";
+
+	Enemy* enemy = RoomHistory.at(RoomHistory.size() - 1)->Monster;
+	output += enemy->GetName() + "(" + std::to_string(enemy->GetHealth()) + " HP)" + "\n";
+
+	output += "\n";
+	output += "[Fight] Fight against this enemy!\n";
+	output += "[Flee] Flee from this fight\n";
+
+	return output;
 }
 
 void Hero::IncreaseXp(const int & exp)

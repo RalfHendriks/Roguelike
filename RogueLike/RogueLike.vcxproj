@@ -146,6 +146,7 @@
   <ItemGroup>
     <ClInclude Include="actions.h" />
     <ClInclude Include="character.h" />
+    <ClInclude Include="commands.h" />
     <ClInclude Include="dungeon.h" />
     <ClInclude Include="enemy.h" />
     <ClInclude Include="enemyFactory.h" />
