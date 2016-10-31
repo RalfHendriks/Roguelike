@@ -3,7 +3,6 @@
 
 Dungeon::Dungeon(int size, int dLevel)
 {
-	map_ = std::vector<std::vector<Room*>>();
 	dungeon_ = std::vector<std::vector<std::vector<Room*>>>();
 	GenerateDungeon(size, dLevel);
 }
@@ -109,12 +108,16 @@ Dungeon::~Dungeon()
 {
 	walls_.clear();
 	startRoom_ = nullptr;
-	for (size_t i = 0; i < map_.size(); i++) {
-		for (size_t j = 0; j < map_.at(i).size(); j++) {
-			delete map_.at(i).at(j);
+	for (size_t d = 0; d < dungeon_.size(); d++)
+	{
+		for (size_t i = 0; i < dungeon_.at(d).size(); i++) {
+			for (size_t j = 0; j < dungeon_.at(d).at(i).size(); j++) {
+				delete dungeon_.at(d).at(i).at(j);
+			}
 		}
 	}
-	map_.clear();
+
+	dungeon_.clear();
 	//delete startRoom_;
 }
 

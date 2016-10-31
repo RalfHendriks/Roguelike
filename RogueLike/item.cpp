@@ -9,7 +9,7 @@ Item::~Item()
 {
 }
 
-void Item::UseItem()
+void Item::UseItem(Character* character)
 {
 }
 

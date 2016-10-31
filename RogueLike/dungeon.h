@@ -6,7 +6,6 @@
 class Dungeon {
 private:
 	std::vector<std::vector<std::vector<Room*>>> dungeon_;
-	std::vector<std::vector<Room*>> map_;
 	std::vector<Room*> walls_;
 	Room* startRoom_;
 	bool showConnectedRooms_ = false;
