@@ -7,7 +7,7 @@ Hero::Hero() {
 	health_ = 10;
 	maxHealth_ = 10;
 	xp_ = 0;
-	attack_ = 2;
+	attack_ = 3;
 	defence_ = 3;
 	inventory_ = new Inventory();
 	saveData_ = new HeroSaveData();
@@ -20,13 +20,13 @@ Hero::~Hero() {
 	delete saveData_;
 }
 
-void Hero::IncreaseLevel()
+std::string Hero::IncreaseLevel()
 {
 	level_++;
-	IncreaseAttack(1);
-	IncreaseDefence(1);
+	IncreaseAttack(2);
+	IncreaseDefence(2);
 	IncreaseMaxHealth(10);
-	std::cout << "Congratulations! You just increased in combat! You're now level " << level_;
+	return "Congratulations! You just increased in combat! You're now level " + std::to_string(level_) + "\n";
 }
 
 void Hero::IncreaseMaxHealth(const int & h)
@@ -121,40 +121,41 @@ std::string Hero::AttackActions()
 	return output;
 }
 
-void Hero::IncreaseXp(const int & exp)
+std::string Hero::IncreaseXp(const int & exp)
 {
 	xp_ += exp;
-
+	std::string lvlMessage = "";
 	if (level_ == 1 && xp_ > 20) {
-		IncreaseLevel();
+		lvlMessage = IncreaseLevel();
 	}
 	else if (level_ == 2 && xp_ > 50) {
-		IncreaseLevel();
+		lvlMessage = IncreaseLevel();
 	}
 	else if (level_ == 3 && xp_ > 90) {
-		IncreaseLevel();
+		lvlMessage = IncreaseLevel();
 	}
 	else if (level_ == 4 && xp_ > 140) {
-		IncreaseLevel();
+		lvlMessage = IncreaseLevel();
 	}
 	else if (level_ == 5 && xp_ > 200) {
-		IncreaseLevel();
+		lvlMessage = IncreaseLevel();
 	}
 	else if (level_ == 6 && xp_ > 400) {
-		IncreaseLevel();
+		lvlMessage = IncreaseLevel();
 	}
 	else if (level_ == 7 && xp_ > 800) {
-		IncreaseLevel();
+		lvlMessage = IncreaseLevel();
 	}
 	else if (level_ == 8 && xp_ > 1600) {
-		IncreaseLevel();
+		lvlMessage = IncreaseLevel();
 	}
 	else if (level_ == 9 && xp_ > 3200) {
-		IncreaseLevel();
+		lvlMessage = IncreaseLevel();
 	}
 	else if (level_ == 10 && xp_ > 6400) {
-		IncreaseLevel();
+		lvlMessage = IncreaseLevel();
 	}
+	return lvlMessage;
 }
 
 void Hero::Save()
