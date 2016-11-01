@@ -14,20 +14,20 @@ void Dungeon::printRoomRow(Room * room, size_t index, size_t subIndex, Hero * he
 	if (room == hero->RoomHistory.at(hero->RoomHistory.size() - 1)) {
 		output.append("P");
 	}
-	else if (!room->HasBeenVisited()) {
-		output.append(".");
-	}
 	else if (room->HasEnemies()) {
 		output.append("E");
 	}
 	else if (room->CanGoDown() && room->CanGoUp()) {
 		output.append("X");
 	}
-	else if (room->CanGoDown()) {
+	else if (room->CanGoDown() && room->HasBeenVisited()) {
 		output.append("D");
 	}
 	else if (room->CanGoUp() || room == startRoom_) {
 		output.append("U");
+	}
+	else if (!room->HasBeenVisited()) {
+		output.append(".");
 	}
 	else {
 		output.append("N");
@@ -98,9 +98,9 @@ void Dungeon::PrintLegend()
 	std::cout << "\n";
 }
 
-void Dungeon::SetDisplayConnectedRooms(bool value)
+void Dungeon::SetDisplayConnectedRooms()
 {
-	showConnectedRooms_ = value;
+	showConnectedRooms_ = showConnectedRooms_ ? false : true;
 }
 
 

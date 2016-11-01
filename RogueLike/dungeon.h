@@ -8,7 +8,7 @@ private:
 	std::vector<std::vector<std::vector<Room*>>> dungeon_;
 	std::vector<Room*> walls_;
 	Room* startRoom_;
-	bool showConnectedRooms_ = false;
+	bool showConnectedRooms_ = true;
 
 	void printRoomRow(Room* room, size_t index, size_t subIndex, Hero* player);
 	void printPath(Room* room, size_t lvl, size_t index);
@@ -31,5 +31,5 @@ public:
 	void AddConnectedRooms(Room* current);
 	void ConnectRoom(Room* current);
 	void PrintLegend();
-	void SetDisplayConnectedRooms(bool value);
+	void SetDisplayConnectedRooms();
 };

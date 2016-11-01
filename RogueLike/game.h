@@ -8,20 +8,18 @@
 
 class Game {
 	enum GameStates {
-		Main = 0,
-		Room = 1,
-		Attack = 2
+		Peacefully = 0,
+		Violent = 1
 	};
 private:
 	Dungeon* dungeon_;
 	InputHandler inputHandler_;
 	std::map<std::string, Commands> commands_;
+	GameStates currentGameState_ = GameStates::Peacefully;
 	bool gameIsRunning_;
-	GameStates gameStatus_ = Main;
 	bool legendEnabled_ = false;
 	bool statsEnabled_ = false;
 	bool mapEnabled_ = true;
-	bool showConnectedRooms_ = true;
 	void Setup();
 	void RunGameSequence();
 

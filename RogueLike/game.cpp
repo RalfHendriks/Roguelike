@@ -94,88 +94,100 @@ std::string Game::ExecuteAction(std::string action)
 std::string Game::CanDoAction(std::string action)
 {
 	Commands command = commands_[action];
-	switch (command)
-	{
-	case Commands::Fight:
-		if (Hero::Instance()->RoomHistory.at(Hero::Instance()->RoomHistory.size() - 1)->HasEnemies()) {
+
+	//Check for Violent actions
+	if (Hero::Instance()->RoomHistory.at(Hero::Instance()->RoomHistory.size() - 1)->HasEnemies()) {
+		if (command == Commands::Fight)
+		{
 			Enemy* enemy = Hero::Instance()->RoomHistory.at(Hero::Instance()->RoomHistory.size() - 1)->Monster;
 			std::string attackMessage;
 			attackMessage = Hero::Instance()->Attack(enemy);
 			if (enemy->GetHealth() < 1) {
-				Hero::Instance()->IncreaseXp((enemy->GetLevel() * 20));
+				std::string lvlMessage = Hero::Instance()->IncreaseXp((enemy->GetLevel() * 20));
 				Hero::Instance()->RoomHistory.at(Hero::Instance()->RoomHistory.size() - 1)->RemoveEnemy();
-				return attackMessage + "You've defeaten all enemies here!";
+				return attackMessage + lvlMessage +"You've defeaten all enemies here!";
 			}
 			return attackMessage + AttackHero();
 		}
-		break;
-	case Commands::Flee:
-		if (Hero::Instance()->RoomHistory.at(Hero::Instance()->RoomHistory.size() - 1)->HasEnemies()) {
+		else if (command == Commands::Flee)
+		{
 			if (Hero::Instance()->RoomHistory.size() > 1) {
 				Hero::Instance()->RoomHistory.pop_back();
 				return "";
 			}
 		}
-		break;
-	case Commands::North:
-		if (Hero::Instance()->RoomHistory.at(Hero::Instance()->RoomHistory.size() - 1)->dNorth != nullptr) {
-			Hero::Instance()->RoomHistory.push_back(Hero::Instance()->RoomHistory.at(Hero::Instance()->RoomHistory.size() - 1)->dNorth);
-			Hero::Instance()->RoomHistory.at(Hero::Instance()->RoomHistory.size() - 2)->dNorth->SetVisited(Hero::Instance()->GetDungeonLvl());
-			return "";
-		}
-		break;
-	case Commands::East:
-		if (Hero::Instance()->RoomHistory.at(Hero::Instance()->RoomHistory.size() - 1)->dEast != nullptr) {
-			Hero::Instance()->RoomHistory.push_back(Hero::Instance()->RoomHistory.at(Hero::Instance()->RoomHistory.size() - 1)->dEast);
-			Hero::Instance()->RoomHistory.at(Hero::Instance()->RoomHistory.size() - 2)->dEast->SetVisited(Hero::Instance()->GetDungeonLvl());
-			return "";
-		}
-		break;
-	case Commands::South:
-		if (Hero::Instance()->RoomHistory.at(Hero::Instance()->RoomHistory.size() - 1)->dSouth != nullptr) {
-			Hero::Instance()->RoomHistory.push_back(Hero::Instance()->RoomHistory.at(Hero::Instance()->RoomHistory.size() - 1)->dSouth);
-			Hero::Instance()->RoomHistory.at(Hero::Instance()->RoomHistory.size() - 2)->dSouth->SetVisited(Hero::Instance()->GetDungeonLvl());
-			return "";
-		}
-		break;
-	case Commands::West:
-		if (Hero::Instance()->RoomHistory.at(Hero::Instance()->RoomHistory.size() - 1)->dWest != nullptr) {
-			Hero::Instance()->RoomHistory.push_back(Hero::Instance()->RoomHistory.at(Hero::Instance()->RoomHistory.size() - 1)->dWest);
-			Hero::Instance()->RoomHistory.at(Hero::Instance()->RoomHistory.size() - 2)->dWest->SetVisited(Hero::Instance()->GetDungeonLvl());
-			return "";
-		}
-		break;
-	case Commands::Up:
-		if (Hero::Instance()->RoomHistory.at(Hero::Instance()->RoomHistory.size() - 1)->CanGoUp() || Hero::Instance()->RoomHistory.at(Hero::Instance()->RoomHistory.size() - 1)->IsStartRoom) {
-			if (Hero::Instance()->ToPreviousDungeon())
-			{
-				Hero::Instance()->RoomHistory.push_back(Hero::Instance()->RoomHistory.at(Hero::Instance()->RoomHistory.size() - 1)->dUp);
-				return "You move back up";
-			}
-			return "Trying to run before you get any treasure ey? Cowards should just rot in the dungeon.";
-		}
-		return "";
-		break;
-	case Commands::Down:
-		if (Hero::Instance()->RoomHistory.at(Hero::Instance()->RoomHistory.size() - 1)->CanGoDown()) {
-			Hero::Instance()->ToNextDungeon();
-			Hero::Instance()->RoomHistory.push_back(Hero::Instance()->RoomHistory.at(Hero::Instance()->RoomHistory.size() - 1)->dDown);
-			return "You went further into the depths";
-		}
-		return "";
-		break;
-	case Commands::Rest:
-		Hero::Instance()->Rest();
-		Hero::Instance()->RoomHistory.at(Hero::Instance()->RoomHistory.size() - 1)->AddEnemy(Hero::Instance()->GetDungeonLvl());
-		if (Hero::Instance()->RoomHistory.at(Hero::Instance()->RoomHistory.size() - 1)->HasEnemies())
+	}
+	else
+	{
+		//Check for passive actions
+		switch (command)
 		{
-			return "You had a nightmare, you wake up seeing an enemy!";
+		case Commands::North:
+			if (Hero::Instance()->RoomHistory.at(Hero::Instance()->RoomHistory.size() - 1)->dNorth != nullptr) {
+				Hero::Instance()->RoomHistory.push_back(Hero::Instance()->RoomHistory.at(Hero::Instance()->RoomHistory.size() - 1)->dNorth);
+				Hero::Instance()->RoomHistory.at(Hero::Instance()->RoomHistory.size() - 2)->dNorth->SetVisited(Hero::Instance()->GetDungeonLvl());
+				return "";
+			}
+			break;
+		case Commands::East:
+			if (Hero::Instance()->RoomHistory.at(Hero::Instance()->RoomHistory.size() - 1)->dEast != nullptr) {
+				Hero::Instance()->RoomHistory.push_back(Hero::Instance()->RoomHistory.at(Hero::Instance()->RoomHistory.size() - 1)->dEast);
+				Hero::Instance()->RoomHistory.at(Hero::Instance()->RoomHistory.size() - 2)->dEast->SetVisited(Hero::Instance()->GetDungeonLvl());
+				return "";
+			}
+			break;
+		case Commands::South:
+			if (Hero::Instance()->RoomHistory.at(Hero::Instance()->RoomHistory.size() - 1)->dSouth != nullptr) {
+				Hero::Instance()->RoomHistory.push_back(Hero::Instance()->RoomHistory.at(Hero::Instance()->RoomHistory.size() - 1)->dSouth);
+				Hero::Instance()->RoomHistory.at(Hero::Instance()->RoomHistory.size() - 2)->dSouth->SetVisited(Hero::Instance()->GetDungeonLvl());
+				return "";
+			}
+			break;
+		case Commands::West:
+			if (Hero::Instance()->RoomHistory.at(Hero::Instance()->RoomHistory.size() - 1)->dWest != nullptr) {
+				Hero::Instance()->RoomHistory.push_back(Hero::Instance()->RoomHistory.at(Hero::Instance()->RoomHistory.size() - 1)->dWest);
+				Hero::Instance()->RoomHistory.at(Hero::Instance()->RoomHistory.size() - 2)->dWest->SetVisited(Hero::Instance()->GetDungeonLvl());
+				return "";
+			}
+			break;
+		case Commands::Up:
+			if (Hero::Instance()->RoomHistory.at(Hero::Instance()->RoomHistory.size() - 1)->CanGoUp() || Hero::Instance()->RoomHistory.at(Hero::Instance()->RoomHistory.size() - 1)->IsStartRoom) {
+				if (Hero::Instance()->ToPreviousDungeon())
+				{
+					Hero::Instance()->RoomHistory.push_back(Hero::Instance()->RoomHistory.at(Hero::Instance()->RoomHistory.size() - 1)->dUp);
+					return "You move back up";
+				}
+				return "Trying to run before you get any treasure ey? Cowards should just rot in the dungeon.";
+			}
+			return "";
+			break;
+		case Commands::Down:
+			if (Hero::Instance()->RoomHistory.at(Hero::Instance()->RoomHistory.size() - 1)->CanGoDown()) {
+				Hero::Instance()->ToNextDungeon();
+				Hero::Instance()->RoomHistory.push_back(Hero::Instance()->RoomHistory.at(Hero::Instance()->RoomHistory.size() - 1)->dDown);
+				return "You went further into the depths";
+			}
+			return "";
+			break;
+		case Commands::Rest:
+			Hero::Instance()->Rest();
+			Hero::Instance()->RoomHistory.at(Hero::Instance()->RoomHistory.size() - 1)->AddEnemy((Hero::Instance()->GetDungeonLvl()+1));
+			if (Hero::Instance()->RoomHistory.at(Hero::Instance()->RoomHistory.size() - 1)->HasEnemies())
+			{
+				return "You had a nightmare, you wake up seeing an enemy!";
+			}
+			return "You slept well, health restored by 10!";
+			break;
+		case Commands::Search:
+			return Hero::Instance()->Search();
+			break;
+
 		}
-		return "You slept well, health restored by 10!";
-		break;
-	case Commands::Search:
-		return Hero::Instance()->Search();
-		break;
+	}
+
+	//check for interface commands
+	switch (command)
+	{
 	case Commands::Legend:
 		legendEnabled_ = legendEnabled_ ? false : true;
 		return "";
@@ -189,7 +201,7 @@ std::string Game::CanDoAction(std::string action)
 		return "";
 		break;
 	case Commands::ShowConnectedRooms:
-		dungeon_->SetDisplayConnectedRooms(dungeon_->GetDisplayConnectedRooms() ? false : true);
+		dungeon_->SetDisplayConnectedRooms();
 		return "";
 		break;
 	}
