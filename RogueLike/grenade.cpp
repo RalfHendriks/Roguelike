@@ -10,7 +10,10 @@ Grenade::~Grenade()
 {
 };
 
-void Grenade::UseItem(Character* character)
+void Grenade::UseItem()
 {
-	character->LowerHealth(40);
+	EnemyItem::UseItem();
+
+	if(CheckIfCharacterIsSet())
+		character_->LowerHealth(40);
 }

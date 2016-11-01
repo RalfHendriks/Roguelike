@@ -1,12 +1,12 @@
 #pragma once
 
-#include "item.h"
+#include "enemyItem.h"
 
-class Grenade : public Item
+class Grenade : public EnemyItem
 {
 public:
 	Grenade();
 	~Grenade();
 
-	void UseItem(Character * character);
+	void UseItem();
 };

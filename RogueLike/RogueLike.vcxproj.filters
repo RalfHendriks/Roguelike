@@ -22,9 +22,6 @@
     <ClCompile Include="item.cpp">
       <Filter>Source files\Items</Filter>
     </ClCompile>
-    <ClCompile Include="potion.cpp">
-      <Filter>Source files\Items</Filter>
-    </ClCompile>
     <ClCompile Include="RogueLike.cpp">
       <Filter>Source files</Filter>
     </ClCompile>
@@ -47,6 +44,21 @@
       <Filter>Source files\Items</Filter>
     </ClCompile>
     <ClCompile Include="heroSaveData.cpp">
+      <Filter>Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="itemFactory.cpp">
+      <Filter>Source files\Items</Filter>
+    </ClCompile>
+    <ClCompile Include="sword.cpp">
+      <Filter>Source files\Items</Filter>
+    </ClCompile>
+    <ClCompile Include="heroItem.cpp">
+      <Filter>Source files\Items</Filter>
+    </ClCompile>
+    <ClCompile Include="enemyItem.cpp">
+      <Filter>Source files\Items</Filter>
+    </ClCompile>
+    <ClCompile Include="test.cpp">
       <Filter>Source files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -78,9 +90,6 @@
     <ClInclude Include="item.h">
       <Filter>Header files\Items</Filter>
     </ClInclude>
-    <ClInclude Include="potion.h">
-      <Filter>Header files\Items</Filter>
-    </ClInclude>
     <ClInclude Include="room.h">
       <Filter>Header files</Filter>
     </ClInclude>
@@ -103,6 +112,21 @@
       <Filter>Header files</Filter>
     </ClInclude>
     <ClInclude Include="commands.h">
+      <Filter>Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="itemFactory.h">
+      <Filter>Header files\Items</Filter>
+    </ClInclude>
+    <ClInclude Include="sword.h">
+      <Filter>Header files\Items</Filter>
+    </ClInclude>
+    <ClInclude Include="heroItem.h">
+      <Filter>Header files\Items</Filter>
+    </ClInclude>
+    <ClInclude Include="enemyItem.h">
+      <Filter>Header files\Items</Filter>
+    </ClInclude>
+    <ClInclude Include="test.h">
       <Filter>Header files</Filter>
     </ClInclude>
   </ItemGroup>

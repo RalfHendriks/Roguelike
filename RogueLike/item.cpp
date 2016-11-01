@@ -1,15 +1,8 @@
 #include "stdafx.h"
 #include "item.h"
+#include "hero.h"
 
-Item::Item()
-{
-}
-
-Item::~Item()
-{
-}
-
-void Item::UseItem(Character* character)
+void Item::UseItem()
 {
 }
 

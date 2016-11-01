@@ -22,7 +22,7 @@ public:
 
 	static Hero* Instance()
 	{
-		static Hero mInstance; // Guaranteed to be destroyed. - Instantiated on first use.
+		static Hero mInstance;
 		return &mInstance;
 	}
 

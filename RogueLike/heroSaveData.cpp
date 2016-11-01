@@ -27,7 +27,7 @@ bool HeroSaveData::LoadHero()
 	}
 	file.close();
 
-	return false;
+	return true;
 }
 
 bool HeroSaveData::SaveHero()

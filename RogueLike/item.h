@@ -5,10 +5,7 @@
 class Item
 {
 public:
-	Item();
-	~Item();
-
-	virtual void UseItem(Character* character);
+	virtual void UseItem();
 	void SetName(const std::string & n);
 	void SetDescription(const std::string & desc);
 	std::string GetDescription() { return description_; }

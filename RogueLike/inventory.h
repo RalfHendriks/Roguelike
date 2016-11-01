@@ -10,7 +10,8 @@ public:
 
 	void AddItem(Item* item);
 	bool RemoveItem(Item* item);
-	std::vector<Item*> GetItems();
+	void PrintInventory();
+	void UseItem(const int & n);
 
 private:
 	std::vector<Item*> items_;
