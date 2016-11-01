@@ -22,13 +22,15 @@ Game::Game()
 	commands_.insert(std::make_pair("Map", Commands::Map));
 	commands_.insert(std::make_pair("ShowConnectedRooms", Commands::ShowConnectedRooms));
 	commands_.insert(std::make_pair("Talisman", Commands::Talisman));
+	commands_.insert(std::make_pair("Inventory", Commands::Inventory));
+	commands_.insert(std::make_pair("Use", Commands::Use));
 }
 
 Game::~Game()
 {
 	delete dungeon_;
-	Hero::Instance()->~Hero();
-	EnemyFactory::Instance()->~EnemyFactory();
+	//Hero::Instance()->~Hero();
+	//EnemyFactory::Instance()->~EnemyFactory();
 }
 
 void Game::Start()
@@ -56,8 +58,12 @@ void Game::Refresh()
 		{
 			GetHeroStats();
 		}
-		/*inputHandler_.setTextColor(inputHandler_.CYAN);
-		Hero::Instance()->printItems();*/
+		if (Hero::Instance()->GetDisplayInventory())
+		{
+			inputHandler_.setTextColor(inputHandler_.CYAN);
+			Hero::Instance()->PrintInventory();
+		}
+
 	}
 	inputHandler_.setTextColor(inputHandler_.WHITE);
 }
@@ -207,6 +213,18 @@ std::string Game::CanDoAction(std::string action)
 		dungeon_->SetDisplayConnectedRooms();
 		return "";
 		break;
+	case Commands::Inventory:
+		Hero::Instance()->SetDisplayIventory();
+		return "";
+		break;
+	case Commands::Use:
+		std::string input;
+		Hero::Instance()->PrintInventory();
+		std::cout << "\n Which item do you want to use? Please enter the position in the inventory: ";
+		std::cin >> input;
+		std::string message = Hero::Instance()->UseItem(std::stoi(input));
+		return message;
+		break;
 	}
 	return "Invalid Command!";
 }
@@ -269,9 +287,11 @@ void Game::RunGameSequence()
 	{
 		std::cout << PossibleActions();
 		std::string input = "";
-		std::getline(std::cin, input);
+		std::cin >> input;
+		//std::getline(std::cin, input);
 		std::string output = ExecuteAction(input);
 		Refresh();
 		std::cout << output;
+		std::cin.clear();
 	}
 }

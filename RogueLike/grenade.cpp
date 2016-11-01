@@ -10,10 +10,12 @@ Grenade::~Grenade()
 {
 };
 
-void Grenade::UseItem()
+std::string Grenade::UseItem()
 {
 	EnemyItem::UseItem();
 
-	if(CheckIfCharacterIsSet())
+	if (CheckIfCharacterIsSet()) {
 		character_->LowerHealth(40);
+		return "You have used a Grenade and damaged your enemy with 40 points.";
+	}
 }

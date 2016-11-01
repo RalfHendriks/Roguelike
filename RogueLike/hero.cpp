@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "hero.h"
 #include "heroSaveData.h"
+#include "itemFactory.h"
 
 Hero::Hero() {
 	level_ = 1;
@@ -71,8 +72,19 @@ void Hero::PrintStats()
 	std::cout << ("Defence: " + std::to_string(defence_) + "\n");
 }
 
+std::string Hero::UseItem(const int & n)
+{
+	return inventory_->UseItem(n);
+}
+
 void Hero::PrintInventory()
 {
+	inventory_->PrintInventory();
+}
+
+void Hero::SetDisplayIventory()
+{
+	showInventory_ = showInventory_ ? false : true;
 }
 
 void Hero::Rest()
@@ -88,11 +100,11 @@ std::string Hero::Search()
 		std::string output = "You search the room\n";
 		double rValue = rand() % 10;
 
+		rValue = 9;
 		if (rValue > 8 ) {
-			output.append("You found something!\n");
-			/*
-				Input code for new found item;;
-			*/
+			Item* item = ItemFactory::Instance()->GetRandomItem();
+			output.append("You found a " + item->GetName() + "!\n");
+			inventory_->AddItem(item);
 		}
 		else {
 			output.append("You couldn't find anything useful\n");

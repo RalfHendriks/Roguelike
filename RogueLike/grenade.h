@@ -8,5 +8,5 @@ public:
 	Grenade();
 	~Grenade();
 
-	void UseItem();
+	std::string UseItem();
 };

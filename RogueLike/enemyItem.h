@@ -5,7 +5,7 @@
 class EnemyItem : public Item
 {
 public:
-	void UseItem();
+	std::string UseItem();
 
 protected:
 	Character* character_;

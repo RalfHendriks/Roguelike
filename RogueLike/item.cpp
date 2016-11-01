@@ -2,8 +2,9 @@
 #include "item.h"
 #include "hero.h"
 
-void Item::UseItem()
+std::string Item::UseItem()
 {
+	return "";
 }
 
 void Item::SetName(const std::string & n)

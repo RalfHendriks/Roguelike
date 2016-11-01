@@ -37,16 +37,17 @@ void Inventory::PrintInventory()
 	std::cout << "\n";
 }
 
-void Inventory::UseItem(const int & n)
+std::string Inventory::UseItem(const int & n)
 {
 	if (n < items_.size()) {
 		// Todo: check if item exists
 		Item* item = items_.at(n);
-		item->UseItem();
+		std::string output = item->UseItem();
 		RemoveItem(item);
+		return output;
 	}
 	else {
-		std::cout << "Sorry, you can't use the item on index " << n << " because it doesn't exists.\n";
+		return "Sorry, you can't use the item on index " + std::to_string(n) + " because it doesn't exists.\n";
 	}
 }
 

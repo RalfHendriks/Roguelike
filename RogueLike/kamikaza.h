@@ -2,11 +2,11 @@
 
 #include "heroItem.h"
 
-class Sword : public HeroItem
+class Kamikaza : public HeroItem
 {
 public:
-	Sword();
-	~Sword();
+	Kamikaza();
+	~Kamikaza();
 
 	std::string UseItem();
 };

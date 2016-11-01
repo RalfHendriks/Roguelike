@@ -9,6 +9,7 @@ class Hero : public Character
 {
 private:
 	int xp_, maxHealth_, dungeonLvl_;
+	bool showInventory_ = false;
 	Inventory* inventory_;
 	HeroSaveData* saveData_;
 
@@ -42,7 +43,10 @@ public:
 	void ToNextDungeon();
 	bool ToPreviousDungeon();
 	void PrintStats();
+	std::string UseItem(const int & n);
 	void PrintInventory();
+	void SetDisplayIventory();
+	bool GetDisplayInventory() { return showInventory_; }
 	std::string IncreaseXp(const int & exp);
 	std::string IncreaseLevel();
 	std::string Search();

@@ -160,6 +160,7 @@
     <ClInclude Include="item.h" />
     <ClInclude Include="itemFactory.h" />
     <ClInclude Include="heroItem.h" />
+    <ClInclude Include="kamikaza.h" />
     <ClInclude Include="room.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="sword.h" />
@@ -182,6 +183,7 @@
     <ClCompile Include="item.cpp" />
     <ClCompile Include="itemFactory.cpp" />
     <ClCompile Include="heroItem.cpp" />
+    <ClCompile Include="kamikaza.cpp" />
     <ClCompile Include="RogueLike.cpp" />
     <ClCompile Include="room.cpp" />
     <ClCompile Include="stdafx.cpp">

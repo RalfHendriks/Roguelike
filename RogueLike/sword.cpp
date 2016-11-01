@@ -10,8 +10,10 @@ Sword::~Sword()
 {
 };
 
-void Sword::UseItem()
+std::string Sword::UseItem()
 {
 	HeroItem::UseItem();
 	character_->IncreaseAttack(10);
+
+	return "You have used your Sword and increased your attack by 10.";
 }

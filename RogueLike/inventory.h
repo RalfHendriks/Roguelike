@@ -11,7 +11,7 @@ public:
 	void AddItem(Item* item);
 	bool RemoveItem(Item* item);
 	void PrintInventory();
-	void UseItem(const int & n);
+	std::string UseItem(const int & n);
 
 private:
 	std::vector<Item*> items_;

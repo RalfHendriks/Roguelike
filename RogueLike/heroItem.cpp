@@ -2,9 +2,10 @@
 #include "heroItem.h"
 #include "hero.h"
 
-void HeroItem::UseItem()
+std::string HeroItem::UseItem()
 {
 	SetCharacter();
+	return "";
 }
 
 void HeroItem::SetCharacter()

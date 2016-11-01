@@ -1,19 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="enemy.cpp">
-      <Filter>Source files</Filter>
-    </ClCompile>
-    <ClCompile Include="character.cpp">
-      <Filter>Source files</Filter>
-    </ClCompile>
     <ClCompile Include="dungeon.cpp">
       <Filter>Source files</Filter>
     </ClCompile>
     <ClCompile Include="globals.cpp">
-      <Filter>Source files</Filter>
-    </ClCompile>
-    <ClCompile Include="hero.cpp">
       <Filter>Source files</Filter>
     </ClCompile>
     <ClCompile Include="Inventory.cpp">
@@ -31,9 +22,6 @@
     <ClCompile Include="stdafx.cpp">
       <Filter>Source files</Filter>
     </ClCompile>
-    <ClCompile Include="EnemyFactory.cpp">
-      <Filter>Source files</Filter>
-    </ClCompile>
     <ClCompile Include="game.cpp">
       <Filter>Source files</Filter>
     </ClCompile>
@@ -42,9 +30,6 @@
     </ClCompile>
     <ClCompile Include="grenade.cpp">
       <Filter>Source files\Items</Filter>
-    </ClCompile>
-    <ClCompile Include="heroSaveData.cpp">
-      <Filter>Source files</Filter>
     </ClCompile>
     <ClCompile Include="itemFactory.cpp">
       <Filter>Source files\Items</Filter>
@@ -61,14 +46,26 @@
     <ClCompile Include="test.cpp">
       <Filter>Source files</Filter>
     </ClCompile>
+    <ClCompile Include="character.cpp">
+      <Filter>Source files\Characters</Filter>
+    </ClCompile>
+    <ClCompile Include="enemy.cpp">
+      <Filter>Source files\Characters</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyFactory.cpp">
+      <Filter>Source files\Characters</Filter>
+    </ClCompile>
+    <ClCompile Include="heroSaveData.cpp">
+      <Filter>Source files\Characters</Filter>
+    </ClCompile>
+    <ClCompile Include="hero.cpp">
+      <Filter>Source files\Characters</Filter>
+    </ClCompile>
+    <ClCompile Include="kamikaza.cpp">
+      <Filter>Source files\Items</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="enemy.h">
-      <Filter>Header files</Filter>
-    </ClInclude>
-    <ClInclude Include="character.h">
-      <Filter>Header files</Filter>
-    </ClInclude>
     <ClInclude Include="dungeon.h">
       <Filter>Header files</Filter>
     </ClInclude>
@@ -79,9 +76,6 @@
       <Filter>Header files</Filter>
     </ClInclude>
     <ClInclude Include="globals.h">
-      <Filter>Header files</Filter>
-    </ClInclude>
-    <ClInclude Include="hero.h">
       <Filter>Header files</Filter>
     </ClInclude>
     <ClInclude Include="inventory.h">
@@ -99,17 +93,11 @@
     <ClInclude Include="targetver.h">
       <Filter>Header files</Filter>
     </ClInclude>
-    <ClInclude Include="enemyFactory.h">
-      <Filter>Header files</Filter>
-    </ClInclude>
     <ClInclude Include="inputHandler.h">
       <Filter>Header files</Filter>
     </ClInclude>
     <ClInclude Include="grenade.h">
       <Filter>Header files\Items</Filter>
-    </ClInclude>
-    <ClInclude Include="heroSaveData.h">
-      <Filter>Header files</Filter>
     </ClInclude>
     <ClInclude Include="commands.h">
       <Filter>Header files</Filter>
@@ -129,6 +117,24 @@
     <ClInclude Include="test.h">
       <Filter>Header files</Filter>
     </ClInclude>
+    <ClInclude Include="character.h">
+      <Filter>Header files\Characters</Filter>
+    </ClInclude>
+    <ClInclude Include="enemy.h">
+      <Filter>Header files\Characters</Filter>
+    </ClInclude>
+    <ClInclude Include="enemyFactory.h">
+      <Filter>Header files\Characters</Filter>
+    </ClInclude>
+    <ClInclude Include="hero.h">
+      <Filter>Header files\Characters</Filter>
+    </ClInclude>
+    <ClInclude Include="heroSaveData.h">
+      <Filter>Header files\Characters</Filter>
+    </ClInclude>
+    <ClInclude Include="kamikaza.h">
+      <Filter>Header files\Items</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Header files">
@@ -142,6 +148,12 @@
     </Filter>
     <Filter Include="Source files\Items">
       <UniqueIdentifier>{0670f8a6-f950-4b90-9e7b-0f30cd9cf42d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header files\Characters">
+      <UniqueIdentifier>{fcd17e90-0e1b-414b-852a-0892f4791fce}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source files\Characters">
+      <UniqueIdentifier>{22313cc7-4eef-4e05-97a1-df46317bf1b9}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

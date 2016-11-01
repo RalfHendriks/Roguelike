@@ -18,5 +18,6 @@ enum class Commands
 	Map,
 	ShowConnectedRooms,
 	Talisman,
-
+	Inventory,
+	Use
 };
