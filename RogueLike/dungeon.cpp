@@ -26,7 +26,7 @@ void Dungeon::printRoomRow(Room * room, size_t index, size_t subIndex, Hero * he
 	else if (room->CanGoDown()) {
 		output.append("D");
 	}
-	else if (room->CanGoUp()) {
+	else if (room->CanGoUp() || room == startRoom_) {
 		output.append("U");
 	}
 	else {
@@ -178,7 +178,7 @@ void Dungeon::GenerateDungeon(int size,int lvl)
 		if (lastDown != nullptr) { current->dUp = lastDown;  lastDown->dDown = current; }
 		//Set stairs up
 		current->algorithmChecked();
-		if (i == 0) { startRoom_ = current; }
+		if (i == 0) { startRoom_ = current; current->IsStartRoom = true; }
 		AddConnectedRooms(current);
 
 		//start algorithm

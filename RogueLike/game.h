@@ -36,4 +36,5 @@ public:
 	std::string CanDoAction(std::string action);
 	std::string PossibleActions();
 	std::string ActionsForRoom();
+	std::string AttackHero();
 };

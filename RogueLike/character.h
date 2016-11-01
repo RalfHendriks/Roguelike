@@ -26,7 +26,7 @@ public:
 	void IncreaseAttack(const int & att);
 	void IncreaseDefence(const int & def);
 	bool CouldDefend(Character* otherCharacter);
-	bool Attack(Character* otherCharacter);
+	std::string Attack(Character* otherCharacter);
 
 protected:
 	std::string name_;

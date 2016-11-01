@@ -30,6 +30,7 @@ public:
 	Room* dUp = nullptr;
 	Enemy* Monster = nullptr;
 	int x, y, roomLvl;
+	bool IsStartRoom = false;
 	bool algorithmIsWall();
 	void algorithmChecked();
 	bool algorithmIsAdded();
@@ -44,13 +45,14 @@ public:
 	void SetSize(const std::string & s);
 	void SetDirty(const std::string & d);
 	void SetFurniture(const std::string & f);
-	void SetVisited();
+	void SetVisited(int lvl);
 	void SetSearched();
 	bool CanGoDown() { return dDown == nullptr ? false : true; }
 	bool CanGoUp() { return dUp == nullptr ? false : true; }
 
 	//Methods
 	void PrintPossibleMovements();
-	void AddEnemy();
+	void AddEnemy(int lvl);
+	void RemoveEnemy();
 
 };
