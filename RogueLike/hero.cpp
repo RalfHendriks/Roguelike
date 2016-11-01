@@ -16,6 +16,11 @@ Hero::Hero() {
 }
 
 Hero::~Hero() {
+
+}
+
+void Hero::Destroy()
+{
 	RoomHistory.clear();
 	delete inventory_;
 	delete saveData_;

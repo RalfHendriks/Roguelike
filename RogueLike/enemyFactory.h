@@ -12,12 +12,10 @@ private:
 
 protected:
 	EnemyFactory();
-	EnemyFactory(const EnemyFactory&);
-	EnemyFactory& operator= (const EnemyFactory&);
 
 public:
 	~EnemyFactory();
-
+	void Destroy();
 	static EnemyFactory* Instance()
 	{
 		static EnemyFactory mInstance;

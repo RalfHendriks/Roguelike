@@ -6,6 +6,7 @@ Game::Game()
 	dungeon_ = nullptr;
 	inputHandler_ = InputHandler();
 	Hero::Instance();
+	EnemyFactory::Instance();
 	commands_ = std::map<std::string, Commands>();
 	commands_.insert(std::make_pair("North", Commands::North));
 	commands_.insert(std::make_pair("East", Commands::East));
@@ -29,8 +30,8 @@ Game::Game()
 Game::~Game()
 {
 	delete dungeon_;
-	//Hero::Instance()->~Hero();
-	//EnemyFactory::Instance()->~EnemyFactory();
+	Hero::Instance()->Destroy();
+	EnemyFactory::Instance()->Destroy();
 }
 
 void Game::Start()

@@ -29,6 +29,7 @@ public:
 	void GenerateDungeon(int size, int dLevel);
 	void Print(Hero* hero);
 	void AddConnectedRooms(Room* current);
+	void ShakeDungeon();
 	void ConnectRoom(Room* current);
 	void PrintLegend();
 	void SetDisplayConnectedRooms();

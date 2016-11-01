@@ -7,7 +7,6 @@ class Inventory
 public:
 	Inventory();
 	~Inventory();
-
 	void AddItem(Item* item);
 	bool RemoveItem(Item* item);
 	void PrintInventory();
