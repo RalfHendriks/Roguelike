@@ -14,12 +14,10 @@ private:
 
 protected:
 	Hero();
-	Hero(const Hero&);
-	Hero& operator= (const Hero&);
 
 public:
 	~Hero();
-
+	void Destroy();
 	static Hero* Instance()
 	{
 		static Hero mInstance;

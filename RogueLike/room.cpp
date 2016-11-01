@@ -13,7 +13,8 @@ Room::Room(int dungeonLvl)
 
 Room::~Room()
 {
-	delete Monster;
+	if (Monster != nullptr)
+		delete Monster;
 }
 
 bool Room::algorithmIsWall()
