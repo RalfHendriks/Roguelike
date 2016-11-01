@@ -121,6 +121,40 @@ std::string Hero::AttackActions()
 	return output;
 }
 
+std::string Hero::UseTalisman()
+{
+	std::vector<Room*> Queue = std::vector<Room*>();
+	int tileDistane = 0;
+	Queue.push_back(RoomHistory.at(RoomHistory.size() - 1));
+
+	while (Queue.size() > 0)
+	{
+		std::vector<Room*> TempQueue = std::vector<Room*>();
+		for (size_t i = 0; i < Queue.size(); i++)
+		{
+			Room* r = Queue.at(i);
+			if (r->dUp != nullptr)
+			{
+				return "The talisman lights and whispers that the staircase is " + std::to_string(tileDistane) + " rooms away";
+			}
+			else
+			{
+				if (r->dEast != nullptr)
+					TempQueue.push_back(r->dEast);
+				if (r->dNorth != nullptr)
+					TempQueue.push_back(r->dNorth);
+				if (r->dWest != nullptr)
+					TempQueue.push_back(r->dWest);
+				if (r->dSouth != nullptr)
+					TempQueue.push_back(r->dSouth);
+			}
+		}
+		Queue.clear();
+		tileDistane++;
+		Queue = TempQueue;
+	}
+}
+
 std::string Hero::IncreaseXp(const int & exp)
 {
 	xp_ += exp;

@@ -21,6 +21,7 @@ Game::Game()
 	commands_.insert(std::make_pair("Rest", Commands::Rest));
 	commands_.insert(std::make_pair("Map", Commands::Map));
 	commands_.insert(std::make_pair("ShowConnectedRooms", Commands::ShowConnectedRooms));
+	commands_.insert(std::make_pair("Talisman", Commands::Talisman));
 }
 
 Game::~Game()
@@ -181,7 +182,9 @@ std::string Game::CanDoAction(std::string action)
 		case Commands::Search:
 			return Hero::Instance()->Search();
 			break;
-
+		case Commands::Talisman:
+			return Hero::Instance()->UseTalisman();
+			break;
 		}
 	}
 

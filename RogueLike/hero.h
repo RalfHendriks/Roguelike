@@ -47,4 +47,5 @@ public:
 	std::string IncreaseLevel();
 	std::string Search();
 	std::string AttackActions();
+	std::string UseTalisman();
 };
