@@ -78,10 +78,10 @@ void Room::SetFurniture(const std::string & f) {
 	furniture_ = f;
 }
 
-void Room::SetVisited()
+void Room::SetVisited(int lvl)
 {
+	AddEnemy((lvl+1));
 	hasBeenVisited_ = true;
-	AddEnemy();
 }
 
 void Room::SetSearched()
@@ -111,13 +111,13 @@ void Room::PrintPossibleMovements()
 		if (dSouth != nullptr) {
 			std::cout << "[South] Go south\n";
 		}
-		if (CanGoUp()) {
+		if (CanGoUp() || IsStartRoom) {
 			std::cout << "[Up] Go up to the entrance\n";
 		}
 		if (CanGoDown()) {
 			std::cout << "[Down] Go deeper to the monsters lair\n";
 		}
-		if (!hasBeenVisited_) {
+		if (!hasBeenSearched_) {
 			std::cout << "[Search] Look for an item in this room\n";
 		}
 		std::cout << "[Rest] Restores HP but monsters might find you\n";
@@ -125,7 +125,7 @@ void Room::PrintPossibleMovements()
 	}
 }
 
-void Room::AddEnemy()
+void Room::AddEnemy(int lvl)
 {
 	if (!CanGoDown() && !CanGoUp())
 	{
@@ -134,15 +134,21 @@ void Room::AddEnemy()
 			int chance;
 			if (!hasBeenVisited_)
 			{
-				chance = rand() % (3);
+				chance = rand() % (20);
 			}
 			else
 			{
-				chance = rand() % (20);
+				chance = rand() % (3);
 			}
 			if (chance == 0) {
-				Monster = EnemyFactory::Instance()->GetMonser(2);
+				Monster = EnemyFactory::Instance()->GetMonser(lvl);
 			}
 		}
 	}
+}
+
+void Room::RemoveEnemy()
+{
+	delete Monster;
+	Monster = nullptr;
 }

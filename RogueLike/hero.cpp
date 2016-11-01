@@ -8,7 +8,7 @@ Hero::Hero() {
 	maxHealth_ = 10;
 	xp_ = 0;
 	attack_ = 2;
-	defence_ = 2;
+	defence_ = 3;
 	inventory_ = new Inventory();
 	saveData_ = new HeroSaveData();
 	dungeonLvl_ = 0;
@@ -69,6 +69,10 @@ void Hero::PrintStats()
 	std::cout << ("HP: " + std::to_string(health_) + "/" + std::to_string(maxHealth_) + "\n");
 	std::cout << ("Attack: " + std::to_string(attack_) + "\n");
 	std::cout << ("Defence: " + std::to_string(defence_) + "\n");
+}
+
+void Hero::PrintInventory()
+{
 }
 
 void Hero::Rest()

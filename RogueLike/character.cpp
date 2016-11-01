@@ -51,14 +51,14 @@ void Character::IncreaseDefence(const int & def)
 	defence_ += def;
 }
 
-bool Character::Attack(Character* otherCharacter) {
+std::string Character::Attack(Character* otherCharacter) {
 	if (!CouldDefend(otherCharacter)) {
 		int damage = rand() % (3 + GetAttack() / 10);
 		otherCharacter->LowerHealth(damage);
-		return true;
+		return name_ + ": Attacked " + otherCharacter->GetName() + " Doing " + std::to_string(damage) + " damage\n";
 	}
 	else {
-		return false;
+		return otherCharacter->GetName() + ": blocked the attack\n";
 	}
 }
 

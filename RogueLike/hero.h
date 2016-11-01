@@ -28,7 +28,7 @@ public:
 
 	std::vector<Room*> RoomHistory = std::vector<Room*>();
 	int GetExp()		{ return xp_; }
-	int GetDungeonLvl()	{ return dungeonLvl_; }
+	int GetDungeonLvl()	{ return (dungeonLvl_ ); }
 	int GetMaxHealth()	{ return maxHealth_; }
 
 	void IncreaseLevel();
@@ -42,6 +42,7 @@ public:
 	void ToNextDungeon();
 	bool ToPreviousDungeon();
 	void PrintStats();
+	void PrintInventory();
 	std::string Search();
 	std::string AttackActions();
 };
