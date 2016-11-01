@@ -17,4 +17,6 @@ enum class Commands
 	Down,
 	Map,
 	ShowConnectedRooms,
+	Talisman,
+
 };
