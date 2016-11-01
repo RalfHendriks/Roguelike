@@ -3,11 +3,9 @@
 #pragma once
 #include "game.h"
 
-#include "test.h"
-
 int main()
 {
-	/*Game* game = new Game();
+	Game* game = new Game();
 	try
 	{
 		game->Start();
@@ -16,13 +14,7 @@ int main()
 	{
 		std::cerr << ex.what();
 	}
-	delete game;*/
-
-	Hero::Instance();
-
-	Test* test = new Test();
-
-	delete test;
+	delete game;
 
 	_CrtDumpMemoryLeaks();
     return 0;
