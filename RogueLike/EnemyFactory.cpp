@@ -10,6 +10,11 @@ EnemyFactory::EnemyFactory() {
 }
 
 EnemyFactory::~EnemyFactory() {
+
+}
+
+void EnemyFactory::Destroy()
+{
 	for (size_t i = 0; i < Enemies.size(); i++) {
 		delete Enemies.at(i);
 	}

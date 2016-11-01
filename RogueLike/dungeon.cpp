@@ -286,6 +286,10 @@ void Dungeon::AddConnectedRooms(Room * current)
 	}
 }
 
+void Dungeon::ShakeDungeon()
+{
+}
+
 void Dungeon::ConnectRoom(Room * current)
 {
 	int x = current->x;
