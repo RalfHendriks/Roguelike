@@ -5,6 +5,7 @@ Game::Game()
 {
 	dungeon_ = nullptr;
 	inputHandler_ = InputHandler();
+	Hero::Instance();
 	commands_ = std::map<std::string, Commands>();
 	commands_.insert(std::make_pair("North", Commands::North));
 	commands_.insert(std::make_pair("East", Commands::East));
@@ -20,12 +21,14 @@ Game::Game()
 	commands_.insert(std::make_pair("Rest", Commands::Rest));
 	commands_.insert(std::make_pair("Map", Commands::Map));
 	commands_.insert(std::make_pair("ShowConnectedRooms", Commands::ShowConnectedRooms));
+	commands_.insert(std::make_pair("Talisman", Commands::Talisman));
 }
 
 Game::~Game()
 {
 	delete dungeon_;
 	Hero::Instance()->~Hero();
+	EnemyFactory::Instance()->~EnemyFactory();
 }
 
 void Game::Start()
@@ -82,6 +85,7 @@ std::string Game::ExecuteAction(std::string action)
 	{
 		output = CanDoAction(action) + "\n";
 		if (Hero::Instance()->GetHealth() < 1) {
+			gameIsRunning_ = false;
 			return output + "	Struck down by the terrors of the dungeon.\n	You lie bleeding on the ground with your body losing all color except from the blood on your skin.\n	The last thing you feel is the knawing of rats on your almost lifeless body.\n	This is the end... \n\n FIN \n\n";
 		}
 	}
@@ -91,53 +95,64 @@ std::string Game::ExecuteAction(std::string action)
 std::string Game::CanDoAction(std::string action)
 {
 	Commands command = commands_[action];
+
+	//Check for Violent actions
 	if (Hero::Instance()->RoomHistory.at(Hero::Instance()->RoomHistory.size() - 1)->HasEnemies()) {
-		if (command == Commands::Fight) {
-			//mGameState = GameStates::ATTACK;
-			return "";
+		if (command == Commands::Fight)
+		{
+			Enemy* enemy = Hero::Instance()->RoomHistory.at(Hero::Instance()->RoomHistory.size() - 1)->Monster;
+			std::string attackMessage;
+			attackMessage = Hero::Instance()->Attack(enemy);
+			if (enemy->GetHealth() < 1) {
+				std::string lvlMessage = Hero::Instance()->IncreaseXp((enemy->GetLevel() * 20));
+				Hero::Instance()->RoomHistory.at(Hero::Instance()->RoomHistory.size() - 1)->RemoveEnemy();
+				return attackMessage + lvlMessage +"You've defeaten all enemies here!";
+			}
+			return attackMessage + AttackHero();
 		}
-		else {
-			if (command == Commands::Flee) {
-				if (Hero::Instance()->RoomHistory.size() > 1) {
-					Hero::Instance()->RoomHistory.pop_back();
-					return "";
-				}
+		else if (command == Commands::Flee)
+		{
+			if (Hero::Instance()->RoomHistory.size() > 1) {
+				Hero::Instance()->RoomHistory.pop_back();
+				return "";
 			}
 		}
 	}
-	else {
+	else
+	{
+		//Check for passive actions
 		switch (command)
 		{
 		case Commands::North:
 			if (Hero::Instance()->RoomHistory.at(Hero::Instance()->RoomHistory.size() - 1)->dNorth != nullptr) {
 				Hero::Instance()->RoomHistory.push_back(Hero::Instance()->RoomHistory.at(Hero::Instance()->RoomHistory.size() - 1)->dNorth);
-				Hero::Instance()->RoomHistory.at(Hero::Instance()->RoomHistory.size() - 2)->dNorth->SetVisited();
+				Hero::Instance()->RoomHistory.at(Hero::Instance()->RoomHistory.size() - 2)->dNorth->SetVisited(Hero::Instance()->GetDungeonLvl());
 				return "";
 			}
 			break;
 		case Commands::East:
 			if (Hero::Instance()->RoomHistory.at(Hero::Instance()->RoomHistory.size() - 1)->dEast != nullptr) {
 				Hero::Instance()->RoomHistory.push_back(Hero::Instance()->RoomHistory.at(Hero::Instance()->RoomHistory.size() - 1)->dEast);
-				Hero::Instance()->RoomHistory.at(Hero::Instance()->RoomHistory.size() - 2)->dEast->SetVisited();
+				Hero::Instance()->RoomHistory.at(Hero::Instance()->RoomHistory.size() - 2)->dEast->SetVisited(Hero::Instance()->GetDungeonLvl());
 				return "";
 			}
 			break;
 		case Commands::South:
 			if (Hero::Instance()->RoomHistory.at(Hero::Instance()->RoomHistory.size() - 1)->dSouth != nullptr) {
 				Hero::Instance()->RoomHistory.push_back(Hero::Instance()->RoomHistory.at(Hero::Instance()->RoomHistory.size() - 1)->dSouth);
-				Hero::Instance()->RoomHistory.at(Hero::Instance()->RoomHistory.size() - 2)->dSouth->SetVisited();
+				Hero::Instance()->RoomHistory.at(Hero::Instance()->RoomHistory.size() - 2)->dSouth->SetVisited(Hero::Instance()->GetDungeonLvl());
 				return "";
 			}
 			break;
 		case Commands::West:
 			if (Hero::Instance()->RoomHistory.at(Hero::Instance()->RoomHistory.size() - 1)->dWest != nullptr) {
 				Hero::Instance()->RoomHistory.push_back(Hero::Instance()->RoomHistory.at(Hero::Instance()->RoomHistory.size() - 1)->dWest);
-				Hero::Instance()->RoomHistory.at(Hero::Instance()->RoomHistory.size() - 2)->dWest->SetVisited();
+				Hero::Instance()->RoomHistory.at(Hero::Instance()->RoomHistory.size() - 2)->dWest->SetVisited(Hero::Instance()->GetDungeonLvl());
 				return "";
 			}
 			break;
 		case Commands::Up:
-			if (Hero::Instance()->RoomHistory.at(Hero::Instance()->RoomHistory.size() - 1)->CanGoUp()) {
+			if (Hero::Instance()->RoomHistory.at(Hero::Instance()->RoomHistory.size() - 1)->CanGoUp() || Hero::Instance()->RoomHistory.at(Hero::Instance()->RoomHistory.size() - 1)->IsStartRoom) {
 				if (Hero::Instance()->ToPreviousDungeon())
 				{
 					Hero::Instance()->RoomHistory.push_back(Hero::Instance()->RoomHistory.at(Hero::Instance()->RoomHistory.size() - 1)->dUp);
@@ -157,7 +172,7 @@ std::string Game::CanDoAction(std::string action)
 			break;
 		case Commands::Rest:
 			Hero::Instance()->Rest();
-			Hero::Instance()->RoomHistory.at(Hero::Instance()->RoomHistory.size() - 1)->AddEnemy();
+			Hero::Instance()->RoomHistory.at(Hero::Instance()->RoomHistory.size() - 1)->AddEnemy((Hero::Instance()->GetDungeonLvl()+1));
 			if (Hero::Instance()->RoomHistory.at(Hero::Instance()->RoomHistory.size() - 1)->HasEnemies())
 			{
 				return "You had a nightmare, you wake up seeing an enemy!";
@@ -167,27 +182,33 @@ std::string Game::CanDoAction(std::string action)
 		case Commands::Search:
 			return Hero::Instance()->Search();
 			break;
-		case Commands::Legend:
-			legendEnabled_ = legendEnabled_ ? false : true;
-			return "";
-			break;
-		case Commands::Stats:
-			statsEnabled_ = statsEnabled_ ? false : true;
-			return "";
-			break;
-		case Commands::Map:
-			mapEnabled_ = mapEnabled_ ? false : true;
-			return "";
-			break;
-		case Commands::ShowConnectedRooms:
-			dungeon_->SetDisplayConnectedRooms(dungeon_->GetDisplayConnectedRooms() ? false : true);
-			return "";
-			break;
-		default:
-			return "Invalid Command!";
+		case Commands::Talisman:
+			return Hero::Instance()->UseTalisman();
 			break;
 		}
-	}	
+	}
+
+	//check for interface commands
+	switch (command)
+	{
+	case Commands::Legend:
+		legendEnabled_ = legendEnabled_ ? false : true;
+		return "";
+		break;
+	case Commands::Stats:
+		statsEnabled_ = statsEnabled_ ? false : true;
+		return "";
+		break;
+	case Commands::Map:
+		mapEnabled_ = mapEnabled_ ? false : true;
+		return "";
+		break;
+	case Commands::ShowConnectedRooms:
+		dungeon_->SetDisplayConnectedRooms();
+		return "";
+		break;
+	}
+	return "Invalid Command!";
 }
 
 std::string Game::PossibleActions()
@@ -202,16 +223,34 @@ std::string Game::ActionsForRoom()
 	return "";
 }
 
+std::string Game::AttackHero()
+{
+	Hero * hero = Hero::Instance();
+	std::string s = Hero::Instance()->RoomHistory.at(Hero::Instance()->RoomHistory.size() - 1)->Monster->Attack(hero);
+	return s;
+}
+
 void Game::Setup()
 {
-	std::cout << "* Welcome By Roguelike! \n" << "* Let's start! Please enter your name! \n";
-	std::string userName;
-	std::cin >> userName;
+	std::cout << "* Welcome By Roguelike! \n";
+	std::cout << "* Would you like to open a previous save?(y/n) \n";
+	std::string tLoad;
+	std::cin >> tLoad;
+	if(tLoad == "y")
+	{
+		Hero::Instance()->Load();
+	}
+	else
+	{
+		std::cout << "* Let's start! Please enter your name! \n";
+		std::string userName;
+		std::cin >> userName;
 
-	Hero::Instance()->SetName(userName);
-	std::cin.clear();
-	std::cout << "* Welcome " << Hero::Instance()->GetName() << ". You're ready to start your adventure! \n";
+		Hero::Instance()->SetName(userName);
+		std::cin.clear();
+		std::cout << "* Welcome " << Hero::Instance()->GetName() << ". You're ready to start your adventure! \n";
 
+	}
 
 	std::cout << "*One last thing before we can start the adventure, please enter the prefered dungeon size: \n";
 	int size;
@@ -233,6 +272,6 @@ void Game::RunGameSequence()
 		std::getline(std::cin, input);
 		std::string output = ExecuteAction(input);
 		Refresh();
-		std::cout << "\n" + output;
+		std::cout << output;
 	}
 }

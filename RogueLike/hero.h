@@ -28,11 +28,11 @@ public:
 
 	std::vector<Room*> RoomHistory = std::vector<Room*>();
 	int GetExp()		{ return xp_; }
-	int GetDungeonLvl()	{ return dungeonLvl_; }
+	int GetDungeonLvl()	{ return (dungeonLvl_ ); }
 	int GetMaxHealth()	{ return maxHealth_; }
 
-	void IncreaseLevel();
-	void IncreaseXp(const int & exp);
+
+
 	void IncreaseMaxHealth(const int & h);
 	void SetMaxHealth(const int & h);
 	void SetXp(const int & exp);
@@ -42,6 +42,10 @@ public:
 	void ToNextDungeon();
 	bool ToPreviousDungeon();
 	void PrintStats();
+	void PrintInventory();
+	std::string IncreaseXp(const int & exp);
+	std::string IncreaseLevel();
 	std::string Search();
 	std::string AttackActions();
+	std::string UseTalisman();
 };

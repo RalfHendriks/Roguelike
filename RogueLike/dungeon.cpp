@@ -14,9 +14,6 @@ void Dungeon::printRoomRow(Room * room, size_t index, size_t subIndex, Hero * he
 	if (room == hero->RoomHistory.at(hero->RoomHistory.size() - 1)) {
 		output.append("P");
 	}
-	else if (!room->HasBeenVisited()) {
-		output.append(".");
-	}
 	else if (room->HasEnemies()) {
 		output.append("E");
 	}
@@ -26,8 +23,11 @@ void Dungeon::printRoomRow(Room * room, size_t index, size_t subIndex, Hero * he
 	else if (room->CanGoDown()) {
 		output.append("D");
 	}
-	else if (room->CanGoUp()) {
+	else if (room->CanGoUp() || room == startRoom_) {
 		output.append("U");
+	}
+	else if (!room->HasBeenVisited()) {
+		output.append(".");
 	}
 	else {
 		output.append("N");
@@ -98,9 +98,9 @@ void Dungeon::PrintLegend()
 	std::cout << "\n";
 }
 
-void Dungeon::SetDisplayConnectedRooms(bool value)
+void Dungeon::SetDisplayConnectedRooms()
 {
-	showConnectedRooms_ = value;
+	showConnectedRooms_ = showConnectedRooms_ ? false : true;
 }
 
 
@@ -178,7 +178,7 @@ void Dungeon::GenerateDungeon(int size,int lvl)
 		if (lastDown != nullptr) { current->dUp = lastDown;  lastDown->dDown = current; }
 		//Set stairs up
 		current->algorithmChecked();
-		if (i == 0) { startRoom_ = current; }
+		if (i == 0) { startRoom_ = current; current->IsStartRoom = true; }
 		AddConnectedRooms(current);
 
 		//start algorithm
