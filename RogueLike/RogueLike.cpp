@@ -16,5 +16,6 @@ int main()
 	}
 	delete game;
 
+	_CrtDumpMemoryLeaks();
     return 0;
 }

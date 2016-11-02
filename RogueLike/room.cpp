@@ -81,7 +81,8 @@ void Room::SetFurniture(const std::string & f) {
 
 void Room::SetVisited(int lvl)
 {
-	AddEnemy((lvl+1));
+	lvl = (lvl + 1) == 10 ? 11 : (lvl + 1);
+	AddEnemy(lvl);
 	hasBeenVisited_ = true;
 }
 

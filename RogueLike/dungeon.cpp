@@ -17,10 +17,10 @@ void Dungeon::printRoomRow(Room * room, size_t index, size_t subIndex, Hero * he
 	else if (room->HasEnemies()) {
 		output.append("E");
 	}
-	else if (room->CanGoDown() && room->CanGoUp()) {
+	else if (room->CanGoDown() && (room->CanGoUp() || room->IsStartRoom)) {
 		output.append("X");
 	}
-	else if (room->CanGoDown()) {
+	else if (room->CanGoDown() && room->HasBeenVisited()) {
 		output.append("D");
 	}
 	else if (room->CanGoUp() || room == startRoom_) {
