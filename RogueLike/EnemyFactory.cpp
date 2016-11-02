@@ -33,12 +33,15 @@ void EnemyFactory::ParseFile(const std::string & path) {
 	}
 }
 
-void EnemyFactory::ParseLine(const std::string & line) {
+void EnemyFactory::ParseLine(std::string & line) {
 	if (line == "")
 		return;
 
 	if (line.at(0) != '[')
 		return;
+
+	line.erase(line.begin());
+	line.erase(line.end() - 1);
 
 	std::stringstream ss(line);
 	std::string item;

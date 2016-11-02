@@ -60,7 +60,7 @@ void HeroSaveData::ParseLine(std::string & line)
 		return;
 
 	line.erase(line.begin());
-	line.erase(line.end());
+	line.erase(line.end() - 1);
 
 	std::stringstream ss(line);
 	std::string item;

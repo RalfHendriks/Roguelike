@@ -36,7 +36,7 @@ public:
 	void SetMaxHealth(const int & h);
 	void SetXp(const int & exp);
 	void Rest();
-	void Save();
+	std::string Save();
 	void Load();
 	void ToNextDungeon();
 	bool ToPreviousDungeon();

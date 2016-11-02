@@ -19,5 +19,6 @@ enum class Commands
 	ShowConnectedRooms,
 	Talisman,
 	Inventory,
-	Use
+	Use,
+	Save
 };
