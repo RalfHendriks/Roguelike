@@ -2,6 +2,9 @@
 //
 #pragma once
 #include "game.h"
+#include "itemFactory.h"
+#include "enemyFactory.h"
+#include <process.h>
 
 int main()
 {
@@ -16,6 +19,7 @@ int main()
 	}
 	delete game;
 
+	_cexit();
 	_CrtDumpMemoryLeaks();
     return 0;
 }
