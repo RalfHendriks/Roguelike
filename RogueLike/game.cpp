@@ -30,6 +30,7 @@ Game::Game()
 Game::~Game()
 {
 	delete dungeon_;
+	commands_.clear();
 	Hero::Instance()->Destroy();
 	EnemyFactory::Instance()->Destroy();
 }
@@ -110,6 +111,10 @@ std::string Game::CanDoAction(std::string action)
 			Enemy* enemy = Hero::Instance()->RoomHistory.at(Hero::Instance()->RoomHistory.size() - 1)->Monster;
 			std::string attackMessage;
 			attackMessage = Hero::Instance()->Attack(enemy);
+			if (enemy->GetHealth() < 1 && enemy->GetLevel() == 11) {
+				gameIsRunning_ = false;
+				return "	With a mighty swing you strike down your final opponent.\n	It was a long journey into depths of almost hell itself!\n	But you succeeded where others did not!\n	Covered in blood, dust and the entrails of foes slain.\n	You walk the final hall towards your prize to secumb to it's glory.\n	This is, the end. \n\n FIN";
+			}
 			if (enemy->GetHealth() < 1) {
 				std::string lvlMessage = Hero::Instance()->IncreaseXp((enemy->GetLevel() * 20));
 				Hero::Instance()->RoomHistory.at(Hero::Instance()->RoomHistory.size() - 1)->RemoveEnemy();
@@ -280,6 +285,7 @@ void Game::Setup()
 
 	Hero::Instance()->RoomHistory.push_back(dungeon_->GetStartRoom());
 	gameIsRunning_ = true;
+	Refresh();
 }
 
 void Game::RunGameSequence()

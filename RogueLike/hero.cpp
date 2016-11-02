@@ -150,7 +150,7 @@ std::string Hero::UseTalisman()
 		for (size_t i = 0; i < Queue.size(); i++)
 		{
 			Room* r = Queue.at(i);
-			if (r->dUp != nullptr)
+			if (r->dUp != nullptr || r->IsStartRoom)
 			{
 				return "The talisman lights and whispers that the staircase is " + std::to_string(tileDistane) + " rooms away";
 			}
