@@ -304,5 +304,10 @@ void Game::RunGameSequence()
 		Refresh();
 		std::cout << output;
 		std::cin.clear();
+		if (!gameIsRunning_) {
+			std::cout << "Press Enter to exit! \n";
+			std::string input = "";
+			std::cin >> input;
+		}
 	}
 }

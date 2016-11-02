@@ -105,7 +105,6 @@ std::string Hero::Search()
 		std::string output = "You search the room\n";
 		double rValue = rand() % 10;
 
-		rValue = 9;
 		if (rValue > 8 ) {
 			Item* item = ItemFactory::Instance()->GetRandomItem();
 			output.append("You found a " + item->GetName() + "!\n");
