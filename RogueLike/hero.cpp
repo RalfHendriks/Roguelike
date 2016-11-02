@@ -217,10 +217,14 @@ std::string Hero::Save()
 		return "Oops, something went wrong while saving your hero\n";
 }
 
-void Hero::Load()
+bool Hero::Load()
 {
-	if(saveData_->LoadHero())
+	if (saveData_->LoadHero()) {
 		std::cout << "You succesfully loaded your hero '" << name_ << "'\n";
-	else
+		return true;
+	}
+	else {
 		std::cout << "Oops, something went wrong while loading your hero\n";
+		return false;
+	}
 }

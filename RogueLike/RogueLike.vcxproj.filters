@@ -64,6 +64,12 @@
     <ClCompile Include="kamikaza.cpp">
       <Filter>Source files\Items</Filter>
     </ClCompile>
+    <ClCompile Include="healthPotion.cpp">
+      <Filter>Source files\Items</Filter>
+    </ClCompile>
+    <ClCompile Include="shield.cpp">
+      <Filter>Source files\Items</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="dungeon.h">
@@ -133,6 +139,12 @@
       <Filter>Header files\Characters</Filter>
     </ClInclude>
     <ClInclude Include="kamikaza.h">
+      <Filter>Header files\Items</Filter>
+    </ClInclude>
+    <ClInclude Include="healthPotion.h">
+      <Filter>Header files\Items</Filter>
+    </ClInclude>
+    <ClInclude Include="shield.h">
       <Filter>Header files\Items</Filter>
     </ClInclude>
   </ItemGroup>

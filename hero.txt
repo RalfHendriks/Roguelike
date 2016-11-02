@@ -1,9 +1,9 @@
 HERO | RogueLike SaveData 
 
 [name;WalfieDeGekste]
-[level;555]
-[attack;13]
-[defence;0]
-[health;1]
-[exp;8394]
-[maxhealth;1]
+[level;2]
+[attack;15]
+[defence;22]
+[health;25]
+[exp;8414]
+[maxhealth;40]

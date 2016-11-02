@@ -264,9 +264,9 @@ void Game::Setup()
 	std::cout << "* Would you like to open a previous save?(y/n) \n";
 	std::string tLoad;
 	std::cin >> tLoad;
-	if(tLoad == "y")
+	if(tLoad == "y" && Hero::Instance()->Load())
 	{
-		Hero::Instance()->Load();
+		// Silence is golden
 	}
 	else
 	{

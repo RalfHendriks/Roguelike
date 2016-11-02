@@ -37,7 +37,7 @@ public:
 	void SetXp(const int & exp);
 	void Rest();
 	std::string Save();
-	void Load();
+	bool Load();
 	void ToNextDungeon();
 	bool ToPreviousDungeon();
 	void PrintStats();
