@@ -39,7 +39,11 @@ void Dungeon::printRoomRow(Room * room, size_t index, size_t subIndex, Hero * he
 			output.append("-");
 		}
 		else {
-			output.append(" ");
+			if (grenadeUsed_)
+				output.append("~");
+			else
+				output.append(" ");
+
 		}
 	}
 	std::cout << output;
@@ -56,7 +60,10 @@ void Dungeon::printPath(Room * room, size_t lvl, size_t index)
 			output.append("| ");
 		}
 		else {
-			output.append("  ");
+			if (grenadeUsed_)
+				output.append("~ ");
+			else
+				output.append("  ");
 		}
 	}
 
@@ -100,6 +107,7 @@ void Dungeon::PrintLegend()
 
 void Dungeon::SetDisplayConnectedRooms()
 {
+	std::cout << showConnectedRooms_;
 	showConnectedRooms_ = showConnectedRooms_ ? false : true;
 }
 
@@ -288,6 +296,38 @@ void Dungeon::AddConnectedRooms(Room * current)
 
 void Dungeon::ShakeDungeon()
 {
+	grenadeUsed_ = true;
+	int dgLvl = Hero::Instance()->GetDungeonLvl();
+	//Reset base create algorithm
+	for (size_t i = 0; i < dungeon_.at(dgLvl).size(); i++)
+	{
+		for (size_t j = 0; j < dungeon_.at(dgLvl).size(); j++)
+		{
+			dungeon_.at(dgLvl).at(i).at(j)->RemoveAlgorithmChecked();
+		}
+	}
+
+	Room* current;
+	walls_ = std::vector<Room*>();
+	current = Hero::Instance()->RoomHistory.at(Hero::Instance()->RoomHistory.size() - 1);
+
+
+	current->algorithmChecked();
+	AddConnectedRooms(current);
+
+	//start algorithm
+	while (walls_.size() > 0) {
+		//Get random wall
+		int rLoc = rand() % (walls_.size());
+		current = walls_.at(rLoc);
+		//remove wall from list
+		walls_.erase(walls_.begin() + rLoc);
+		//add current neighbour rooms to list which aren't connected yet.
+		AddConnectedRooms(current);
+		//connect current room to a nearby room
+		ConnectRoom(current);
+		current->algorithmChecked();
+	}
 }
 
 void Dungeon::ConnectRoom(Room * current)
@@ -303,7 +343,8 @@ void Dungeon::ConnectRoom(Room * current)
 		if (cNeighbour->algorithmIsAdded()) {
 			current->dNorth = cNeighbour;
 			cNeighbour->dSouth = current;
-			isConnected = true;
+			if (grenadeUsed_)
+				isConnected = true;
 		}
 	}
 
@@ -313,7 +354,8 @@ void Dungeon::ConnectRoom(Room * current)
 		if (cNeighbour->algorithmIsAdded()) {
 			current->dEast = cNeighbour;
 			cNeighbour->dWest = current;
-			isConnected = true;
+			if (grenadeUsed_)
+				isConnected = true;
 		}
 	}
 
@@ -323,7 +365,8 @@ void Dungeon::ConnectRoom(Room * current)
 		if (cNeighbour->algorithmIsAdded()) {
 			current->dSouth = cNeighbour;
 			cNeighbour->dNorth = current;
-			isConnected = true;
+			if (grenadeUsed_)
+				isConnected = true;
 		}
 	}
 
@@ -333,7 +376,8 @@ void Dungeon::ConnectRoom(Room * current)
 		if (cNeighbour->algorithmIsAdded()) {
 			current->dWest = cNeighbour;
 			cNeighbour->dEast = current;
-			isConnected = true;
+			if (grenadeUsed_)
+				isConnected = true;
 		}
 	}
 }

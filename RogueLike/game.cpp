@@ -25,6 +25,7 @@ Game::Game()
 	commands_.insert(std::make_pair("Talisman", Commands::Talisman));
 	commands_.insert(std::make_pair("Inventory", Commands::Inventory));
 	commands_.insert(std::make_pair("Use", Commands::Use));
+	commands_.insert(std::make_pair("Grenade", Commands::Grenade));
 }
 
 Game::~Game()
@@ -221,6 +222,10 @@ std::string Game::CanDoAction(std::string action)
 		break;
 	case Commands::Inventory:
 		Hero::Instance()->SetDisplayIventory();
+		return "";
+		break;
+	case Commands::Grenade:
+		dungeon_->ShakeDungeon();
 		return "";
 		break;
 	case Commands::Use:
