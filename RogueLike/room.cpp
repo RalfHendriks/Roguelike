@@ -37,6 +37,20 @@ void Room::algorithmIsListed()
 	isWall_ = false;
 }
 
+void Room::RemoveAlgorithmChecked()
+{
+	isAdded_ = false;
+	isWall_ = true;
+	if (dEast != nullptr)
+		dEast = nullptr;
+	if (dNorth != nullptr)
+		dNorth = nullptr;
+	if (dWest != nullptr)
+		dWest = nullptr;
+	if (dSouth != nullptr)
+		dSouth = nullptr;
+}
+
 std::string Room::GetDescription()
 {
 	return "A " + dirty_ + " " + size_ + " " + furniture_;

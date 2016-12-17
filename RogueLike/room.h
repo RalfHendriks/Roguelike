@@ -35,6 +35,7 @@ public:
 	void algorithmChecked();
 	bool algorithmIsAdded();
 	void algorithmIsListed();
+	void RemoveAlgorithmChecked();
 
 	// Getters
 	std::string GetDescription();

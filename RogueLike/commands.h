@@ -20,5 +20,6 @@ enum class Commands
 	Talisman,
 	Inventory,
 	Use,
+	Grenade,
 	Save
 };

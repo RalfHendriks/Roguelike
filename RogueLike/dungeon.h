@@ -8,7 +8,8 @@ private:
 	std::vector<std::vector<std::vector<Room*>>> dungeon_;
 	std::vector<Room*> walls_;
 	Room* startRoom_;
-	bool showConnectedRooms_ = true;
+	bool showConnectedRooms_ = false;
+	bool grenadeUsed_ = false;
 
 	void printRoomRow(Room* room, size_t index, size_t subIndex, Hero* player);
 	void printPath(Room* room, size_t lvl, size_t index);
