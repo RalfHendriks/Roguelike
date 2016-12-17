@@ -2,6 +2,7 @@
 #include "hero.h"
 #include "heroSaveData.h"
 #include "itemFactory.h"
+#include <map>
 
 Hero::Hero() {
 	level_ = 1;
@@ -139,6 +140,7 @@ std::string Hero::AttackActions()
 
 std::string Hero::UseTalisman()
 {
+	std::map<std::string, bool> visited = std::map<std::string, bool>();
 	std::vector<Room*> Queue = std::vector<Room*>();
 	int tileDistane = 0;
 	Queue.push_back(RoomHistory.at(RoomHistory.size() - 1));
@@ -149,20 +151,24 @@ std::string Hero::UseTalisman()
 		for (size_t i = 0; i < Queue.size(); i++)
 		{
 			Room* r = Queue.at(i);
-			if (r->dUp != nullptr || r->IsStartRoom)
+			if (!visited[std::to_string(r->x) + std::to_string(r->y)])
 			{
-				return "The talisman lights and whispers that the staircase is " + std::to_string(tileDistane) + " rooms away";
-			}
-			else
-			{
-				if (r->dEast != nullptr)
-					TempQueue.push_back(r->dEast);
-				if (r->dNorth != nullptr)
-					TempQueue.push_back(r->dNorth);
-				if (r->dWest != nullptr)
-					TempQueue.push_back(r->dWest);
-				if (r->dSouth != nullptr)
-					TempQueue.push_back(r->dSouth);
+				if (r->dUp != nullptr || r->IsStartRoom)
+				{
+					return "The talisman lights and whispers that the staircase is " + std::to_string(tileDistane) + " rooms away";
+				}
+				else
+				{
+					if (r->dEast != nullptr)
+						TempQueue.push_back(r->dEast);
+					if (r->dNorth != nullptr)
+						TempQueue.push_back(r->dNorth);
+					if (r->dWest != nullptr)
+						TempQueue.push_back(r->dWest);
+					if (r->dSouth != nullptr)
+						TempQueue.push_back(r->dSouth);
+				}
+				visited.insert(std::pair<std::string, bool>(std::to_string(r->x) + std::to_string(r->y), true));
 			}
 		}
 		Queue.clear();
