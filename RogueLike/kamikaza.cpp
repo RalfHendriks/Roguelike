@@ -3,7 +3,7 @@
 Kamikaza::Kamikaza()
 {
 	SetName("Kamikaza");
-	SetDescription("It wouldn't be smart to use this item... it will kill your hero.");
+	SetDescription("This item will drop your health to zero.");
 };
 
 Kamikaza::~Kamikaza()

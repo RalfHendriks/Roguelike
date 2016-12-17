@@ -105,7 +105,6 @@ std::string Hero::Search()
 		std::string output = "You search the room\n";
 		double rValue = rand() % 10;
 
-		rValue = 9;
 		if (rValue > 8 ) {
 			Item* item = ItemFactory::Instance()->GetRandomItem();
 			output.append("You found a " + item->GetName() + "!\n");
@@ -209,18 +208,22 @@ std::string Hero::IncreaseXp(const int & exp)
 	return lvlMessage;
 }
 
-void Hero::Save()
+std::string Hero::Save()
 {
 	if(saveData_->SaveHero())
-		std::cout << "You succesfully saved your hero '" << name_ << "'";
+		return "You succesfully saved your hero '" + name_ + "'\n";
 	else
-		std::cout << "Oops, something went wrong while saving your hero '" << name_ << "'";
+		return "Oops, something went wrong while saving your hero\n";
 }
 
-void Hero::Load()
+bool Hero::Load()
 {
-	if(saveData_->LoadHero())
-		std::cout << "You succesfully loaded your hero '" << name_ << "'";
-	else
-		std::cout << "Oops, something went wrong while loading your hero '" << name_ << "'";
+	if (saveData_->LoadHero()) {
+		std::cout << "You succesfully loaded your hero '" << name_ << "'\n";
+		return true;
+	}
+	else {
+		std::cout << "Oops, something went wrong while loading your hero\n";
+		return false;
+	}
 }

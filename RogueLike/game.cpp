@@ -26,6 +26,7 @@ Game::Game()
 	commands_.insert(std::make_pair("Inventory", Commands::Inventory));
 	commands_.insert(std::make_pair("Use", Commands::Use));
 	commands_.insert(std::make_pair("Grenade", Commands::Grenade));
+	commands_.insert(std::make_pair("Save", Commands::Save));
 }
 
 Game::~Game()
@@ -227,6 +228,8 @@ std::string Game::CanDoAction(std::string action)
 	case Commands::Grenade:
 		dungeon_->ShakeDungeon();
 		return "";
+	case Commands::Save:
+		return Hero::Instance()->Save();
 		break;
 	case Commands::Use:
 		std::string input;
@@ -265,9 +268,9 @@ void Game::Setup()
 	std::cout << "* Would you like to open a previous save?(y/n) \n";
 	std::string tLoad;
 	std::cin >> tLoad;
-	if(tLoad == "y")
+	if(tLoad == "y" && Hero::Instance()->Load())
 	{
-		Hero::Instance()->Load();
+		// Silence is golden
 	}
 	else
 	{
@@ -305,5 +308,10 @@ void Game::RunGameSequence()
 		Refresh();
 		std::cout << output;
 		std::cin.clear();
+		if (!gameIsRunning_) {
+			std::cout << "Press Enter to exit! \n";
+			std::string input = "";
+			std::cin >> input;
+		}
 	}
 }

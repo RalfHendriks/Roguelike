@@ -21,4 +21,5 @@ enum class Commands
 	Inventory,
 	Use,
 	Grenade,
+	Save
 };
